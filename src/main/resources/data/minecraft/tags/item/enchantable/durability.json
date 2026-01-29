@@ -1,6 +1,13 @@
 {
   "replace": false,
   "values": [
+    "drakonis:energiyatoshi",
+    "drakonis:suvtoshi",
+    "drakonis:yertoshi",
+    "drakonis:vaqttoshi",
+    "drakonis:lighttoshi",
+    "drakonis:darktoshi",
+    "drakonis:muztoshi",
     "drakonis:olovtoshi"
   ]
 }

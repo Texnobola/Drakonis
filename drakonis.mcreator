@@ -22,12 +22,110 @@
           "src/main/java/net/mcreator/drakonis/item/OlovtoshiItem.java"
         ]
       }
+    },
+    {
+      "name": "Muztoshi",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "muztoshi",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/drakonis/item/MuztoshiItem.java",
+          "src/main/resources/assets/drakonis/models/item/muztoshi.json"
+        ]
+      }
+    },
+    {
+      "name": "Suvtoshi",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "suvtoshi",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/drakonis/item/SuvtoshiItem.java",
+          "src/main/resources/assets/drakonis/models/item/suvtoshi.json"
+        ]
+      }
+    },
+    {
+      "name": "Yertoshi",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "yertoshi",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/drakonis/models/item/yertoshi.json",
+          "src/main/java/net/mcreator/drakonis/item/YertoshiItem.java"
+        ]
+      }
+    },
+    {
+      "name": "Vaqttoshi",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "vaqttoshi",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/drakonis/models/item/vaqttoshi.json",
+          "src/main/java/net/mcreator/drakonis/item/VaqttoshiItem.java"
+        ]
+      }
+    },
+    {
+      "name": "Energiyatoshi",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "energiyatoshi",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/drakonis/models/item/energiyatoshi.json",
+          "src/main/java/net/mcreator/drakonis/item/EnergiyatoshiItem.java"
+        ]
+      }
+    },
+    {
+      "name": "Darktoshi",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "darktoshi",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/drakonis/item/DarktoshiItem.java",
+          "src/main/resources/assets/drakonis/models/item/darktoshi.json"
+        ]
+      }
+    },
+    {
+      "name": "Lighttoshi",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lighttoshi",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/drakonis/models/item/lighttoshi.json",
+          "src/main/java/net/mcreator/drakonis/item/LighttoshiItem.java"
+        ]
+      }
     }
   ],
   "variable_elements": [],
   "sound_elements": [],
   "tag_elements": {
     "ITEMS:minecraft:enchantable/durability": [
+      "~CUSTOM:Lighttoshi",
+      "~CUSTOM:Darktoshi",
+      "~CUSTOM:Energiyatoshi",
+      "~CUSTOM:Vaqttoshi",
+      "~CUSTOM:Yertoshi",
+      "~CUSTOM:Suvtoshi",
+      "~CUSTOM:Muztoshi",
       "~CUSTOM:Olovtoshi"
     ]
   },
@@ -35,7 +133,14 @@
   "language_map": {
     "en_us": {
       "item_group.drakonis.drakonis": "Drakonis",
-      "item.drakonis.olovtoshi": "Olovtoshi"
+      "item.drakonis.olovtoshi": "Olovtoshi",
+      "item.drakonis.muztoshi": "Olovtoshi",
+      "item.drakonis.suvtoshi": "Olovtoshi",
+      "item.drakonis.yertoshi": "Olovtoshi",
+      "item.drakonis.vaqttoshi": "Olovtoshi",
+      "item.drakonis.energiyatoshi": "Olovtoshi",
+      "item.drakonis.darktoshi": "Olovtoshi",
+      "item.drakonis.lighttoshi": "Olovtoshi"
     }
   },
   "metadata": {

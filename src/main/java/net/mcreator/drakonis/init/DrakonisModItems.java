@@ -8,14 +8,28 @@ import net.neoforged.neoforge.registries.DeferredItem;
 
 import net.minecraft.world.item.Item;
 
-import net.mcreator.drakonis.item.OlovtoshiItem;
+import net.mcreator.drakonis.item.*;
 import net.mcreator.drakonis.DrakonisMod;
 
 public class DrakonisModItems {
 	public static final DeferredRegister.Items REGISTRY = DeferredRegister.createItems(DrakonisMod.MODID);
 	public static final DeferredItem<Item> OLOVTOSHI;
+	public static final DeferredItem<Item> MUZTOSHI;
+	public static final DeferredItem<Item> SUVTOSHI;
+	public static final DeferredItem<Item> YERTOSHI;
+	public static final DeferredItem<Item> VAQTTOSHI;
+	public static final DeferredItem<Item> ENERGIYATOSHI;
+	public static final DeferredItem<Item> DARKTOSHI;
+	public static final DeferredItem<Item> LIGHTTOSHI;
 	static {
 		OLOVTOSHI = REGISTRY.register("olovtoshi", OlovtoshiItem::new);
+		MUZTOSHI = REGISTRY.register("muztoshi", MuztoshiItem::new);
+		SUVTOSHI = REGISTRY.register("suvtoshi", SuvtoshiItem::new);
+		YERTOSHI = REGISTRY.register("yertoshi", YertoshiItem::new);
+		VAQTTOSHI = REGISTRY.register("vaqttoshi", VaqttoshiItem::new);
+		ENERGIYATOSHI = REGISTRY.register("energiyatoshi", EnergiyatoshiItem::new);
+		DARKTOSHI = REGISTRY.register("darktoshi", DarktoshiItem::new);
+		LIGHTTOSHI = REGISTRY.register("lighttoshi", LighttoshiItem::new);
 	}
 	// Start of user code block custom items
 	// End of user code block custom items
