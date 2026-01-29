@@ -22,7 +22,7 @@ public class OlovtoshiItem extends Item {
     @Override
     @OnlyIn(Dist.CLIENT)
     public boolean isFoil(ItemStack itemstack) {
-        return false;
+        return false; // No enchanted glint
     }
 
     @Override
@@ -38,11 +38,10 @@ public class OlovtoshiItem extends Item {
 
     // Shared method to apply effects
     public static void applyTorchEffects(Player player) {
-        // Night Vision (See in Dark)
-        if (player.getEffect(MobEffects.NIGHT_VISION) == null || player.getEffect(MobEffects.NIGHT_VISION).getDuration() < 220) {
-             player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 300, 0, false, false, false));
-        }
-        // Glowing (Visual Outline - Optional)
+        // REMOVED: Night Vision
+        
+        // ADDED: Glowing Effect (Visual Outline)
+        // Note: This does not emit block light unless you have a Dynamic Lights mod installed.
         if (player.getEffect(MobEffects.GLOWING) == null) {
              player.addEffect(new MobEffectInstance(MobEffects.GLOWING, 60, 0, false, false, false));
         }

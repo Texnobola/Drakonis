@@ -25,6 +25,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.registries.BuiltInRegistries;
 
+import net.mcreator.drakonis.network.DrakonisModVariables;
 import net.mcreator.drakonis.init.DrakonisModTabs;
 import net.mcreator.drakonis.init.DrakonisModItems;
 import net.mcreator.drakonis.init.DrakonisModCuriosCompat;
@@ -53,6 +54,7 @@ public class DrakonisMod {
 		DrakonisModItems.REGISTRY.register(modEventBus);
 
 		DrakonisModTabs.REGISTRY.register(modEventBus);
+		DrakonisModVariables.ATTACHMENT_TYPES.register(modEventBus);
 
 		// Start of user code block mod init
 		// End of user code block mod init

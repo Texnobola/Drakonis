@@ -3,7 +3,7 @@
   "_type": "curiosbauble",
   "definition": {
     "item": "Olovtoshi",
-    "slotType": "Stoneplaceholder",
+    "slotType": "BODY",
     "slotAmount": 1,
     "addSlot": true,
     "enderMask": false,

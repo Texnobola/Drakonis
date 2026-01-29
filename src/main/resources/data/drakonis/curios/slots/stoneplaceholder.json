@@ -1,7 +1,0 @@
-{
-  "replace": false,
-  "size": 1,
-  "operation": "SET",
-  "render_toggle": true,
-  "icon": "curios:slot/stone_placeholder_texture"
-}

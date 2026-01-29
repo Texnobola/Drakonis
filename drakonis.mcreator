@@ -115,43 +115,50 @@
       }
     },
     {
-      "name": "Stoneplaceholder",
-      "type": "curiosslot",
+      "name": "ToggleTorchMode",
+      "type": "procedure",
       "compiles": true,
-      "locked_code": false,
-      "registry_name": "stoneplaceholder",
+      "locked_code": true,
+      "registry_name": "toggle_torch_mode",
       "metadata": {
+        "dependencies": [],
         "files": [
-          "src/main/resources/data/drakonis/curios/entities/stoneplaceholder.json",
-          "src/main/resources/data/curios/tags/item/stoneplaceholder.json",
-          "src/main/resources/data/drakonis/curios/slots/stoneplaceholder.json"
+          "src/main/java/net/mcreator/drakonis/procedures/ToggleTorchModeProcedure.java"
         ]
       }
     },
     {
-      "name": "Stonesplaces",
+      "name": "StoneBauble",
       "type": "curiosbauble",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "stonesplaces",
+      "registry_name": "stone_bauble",
       "metadata": {
         "files": []
       }
     },
     {
-      "name": "Firstpassive",
-      "type": "keybind",
+      "name": "OlovtoshiPassiveTick",
+      "type": "procedure",
       "compiles": true,
-      "locked_code": false,
-      "registry_name": "firstpassive",
+      "locked_code": true,
+      "registry_name": "olovtoshi_passive_tick",
       "metadata": {
+        "dependencies": [],
         "files": [
-          "src/main/java/net/mcreator/drakonis/network/FirstpassiveMessage.java"
+          "src/main/java/net/mcreator/drakonis/procedures/OlovtoshiPassiveTickProcedure.java"
         ]
       }
     }
   ],
-  "variable_elements": [],
+  "variable_elements": [
+    {
+      "name": "player_torch_active",
+      "type": "logic",
+      "scope": "player_lifetime",
+      "value": "false"
+    }
+  ],
   "sound_elements": [],
   "tag_elements": {
     "ITEMS:minecraft:enchantable/durability": [
@@ -176,16 +183,15 @@
       "item.drakonis.vaqttoshi": "Vaqt toshi",
       "item.drakonis.energiyatoshi": "Energiya toshi",
       "item.drakonis.darktoshi": "Dark toshi",
-      "item.drakonis.lighttoshi": "Light toshi",
-      "curios.identifier.stoneplaceholder": "Stoneplaceholder",
-      "key.drakonis.firstpassive": "First passive"
+      "item.drakonis.lighttoshi": "Light toshi"
     }
   },
   "metadata": {
     "files": [
+      "src/main/resources/data/drakonis/curios/slots/body.json",
       "src/main/java/net/mcreator/drakonis/init/DrakonisModCuriosCompat.java",
+      "src/main/resources/data/curios/tags/item/body.json",
       "src/main/resources/data/drakonis/curios/entities/slots.json",
-      "src/main/java/net/mcreator/drakonis/init/DrakonisModKeyMappings.java",
       "src/main/java/net/mcreator/drakonis/init/DrakonisModItems.java",
       "src/main/resources/pack.mcmeta",
       "src/main/java/net/mcreator/drakonis/mixin/LevelRendererMixin.java",
@@ -199,6 +205,7 @@
       "src/main/java/net/mcreator/drakonis/DrakonisModPlayerAnimationAPI.java",
       "src/main/java/net/mcreator/drakonis/mixin/ItemInHandLayerMixin.java",
       "src/main/java/net/mcreator/drakonis/mixin/ItemInHandRendererMixin.java",
+      "src/main/java/net/mcreator/drakonis/network/DrakonisModVariables.java",
       "src/main/java/net/mcreator/drakonis/DrakonisMod.java",
       "src/main/java/net/mcreator/drakonis/network/PlayPlayerAnimationMessage.java",
       "src/main/java/net/mcreator/drakonis/mixin/EntityRenderDispatcherMixin.java"
