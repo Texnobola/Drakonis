@@ -153,8 +153,8 @@
     {
       "name": "Firstpassive",
       "type": "keybind",
-      "compiles": true,
-      "locked_code": true,
+      "compiles": false,
+      "locked_code": false,
       "registry_name": "firstpassive",
       "metadata": {
         "files": [

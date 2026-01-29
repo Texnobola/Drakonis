@@ -2,8 +2,11 @@
   "_fv": 79,
   "_type": "keybind",
   "definition": {
-    "triggerKey": "NONE",
+    "triggerKey": "R",
     "keyBindingName": "Firstpassive",
-    "keyBindingCategoryKey": "misc"
+    "keyBindingCategoryKey": "gameplay",
+    "onKeyPressed": {
+      "name": "ToggleTorchMode"
+    }
   }
 }
