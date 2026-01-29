@@ -137,6 +137,18 @@
       "metadata": {
         "files": []
       }
+    },
+    {
+      "name": "Firstpassive",
+      "type": "keybind",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "firstpassive",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/drakonis/network/FirstpassiveMessage.java"
+        ]
+      }
     }
   ],
   "variable_elements": [],
@@ -165,13 +177,15 @@
       "item.drakonis.energiyatoshi": "Energiya toshi",
       "item.drakonis.darktoshi": "Dark toshi",
       "item.drakonis.lighttoshi": "Light toshi",
-      "curios.identifier.stoneplaceholder": "Stoneplaceholder"
+      "curios.identifier.stoneplaceholder": "Stoneplaceholder",
+      "key.drakonis.firstpassive": "First passive"
     }
   },
   "metadata": {
     "files": [
       "src/main/java/net/mcreator/drakonis/init/DrakonisModCuriosCompat.java",
       "src/main/resources/data/drakonis/curios/entities/slots.json",
+      "src/main/java/net/mcreator/drakonis/init/DrakonisModKeyMappings.java",
       "src/main/java/net/mcreator/drakonis/init/DrakonisModItems.java",
       "src/main/resources/pack.mcmeta",
       "src/main/java/net/mcreator/drakonis/mixin/LevelRendererMixin.java",
