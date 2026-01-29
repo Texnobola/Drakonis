@@ -8,10 +8,11 @@ public class ToggleTorchModeProcedure {
     public static void execute(Entity entity) {
         if (entity == null) return;
 
-        // Get player location
+        // Get the exact block position where the player is standing
         BlockPos pos = entity.blockPosition();
         
-        // Place a Torch block
+        // Place the torch at the player's feet
+        // The '3' tells the game to update neighbors and notify the client
         entity.level().setBlock(pos, Blocks.TORCH.defaultBlockState(), 3);
     }
 }

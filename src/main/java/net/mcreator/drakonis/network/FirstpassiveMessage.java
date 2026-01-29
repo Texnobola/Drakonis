@@ -15,7 +15,7 @@ import net.mcreator.drakonis.DrakonisMod;
 
 public record FirstpassiveMessage(int eventType, int pressedms) implements CustomPacketPayload {
     public static final Type<FirstpassiveMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(DrakonisMod.MODID, "key_firstpassive"));
-    
+
     public static final StreamCodec<RegistryFriendlyByteBuf, FirstpassiveMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, FirstpassiveMessage message) -> {
         buffer.writeInt(message.eventType);
         buffer.writeInt(message.pressedms);
@@ -41,7 +41,7 @@ public record FirstpassiveMessage(int eventType, int pressedms) implements Custo
         Level world = entity.level();
         if (!world.hasChunkAt(entity.blockPosition())) return;
         if (type == 0) {
-            // This runs the procedure when you press the key
+            // This runs the procedure and passes the 'entity' (the player)
             ToggleTorchModeProcedure.execute(entity);
         }
     }
