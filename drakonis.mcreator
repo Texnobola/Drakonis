@@ -113,6 +113,20 @@
           "src/main/java/net/mcreator/drakonis/item/LighttoshiItem.java"
         ]
       }
+    },
+    {
+      "name": "Stoneplaceholder",
+      "type": "curiosslot",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stoneplaceholder",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/drakonis/curios/entities/stoneplaceholder.json",
+          "src/main/resources/data/curios/tags/item/stoneplaceholder.json",
+          "src/main/resources/data/drakonis/curios/slots/stoneplaceholder.json"
+        ]
+      }
     }
   ],
   "variable_elements": [],
@@ -140,7 +154,8 @@
       "item.drakonis.vaqttoshi": "Vaqt toshi",
       "item.drakonis.energiyatoshi": "Energiya toshi",
       "item.drakonis.darktoshi": "Dark toshi",
-      "item.drakonis.lighttoshi": "Light toshi"
+      "item.drakonis.lighttoshi": "Light toshi",
+      "curios.identifier.stoneplaceholder": "Stoneplaceholder"
     }
   },
   "metadata": {

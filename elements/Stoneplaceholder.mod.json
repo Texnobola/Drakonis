@@ -1,0 +1,12 @@
+{
+  "_fv": 79,
+  "_type": "curiosslot",
+  "definition": {
+    "texture": "stone_placeholder_texture.png",
+    "name": "Stoneplaceholder",
+    "amount": 1,
+    "modelToggling": false,
+    "changeOrder": false,
+    "slotOrder": 0
+  }
+}
