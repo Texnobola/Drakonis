@@ -1,23 +1,18 @@
 package net.mcreator.drakonis.network;
 
 import net.neoforged.neoforge.network.handling.IPayloadContext;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
-
-import net.minecraft.world.level.Level;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.PacketFlow;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 
 import net.mcreator.drakonis.procedures.ToggleTorchModeProcedure;
 import net.mcreator.drakonis.DrakonisMod;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public record FirstpassiveMessage(int eventType, int pressedms) implements CustomPacketPayload {
     public static final Type<FirstpassiveMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(DrakonisMod.MODID, "key_firstpassive"));
     public static final StreamCodec<RegistryFriendlyByteBuf, FirstpassiveMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, FirstpassiveMessage message) -> {
@@ -43,22 +38,13 @@ public record FirstpassiveMessage(int eventType, int pressedms) implements Custo
 
     public static void pressAction(Player entity, int type, int pressedms) {
         Level world = entity.level();
-        double x = entity.getX();
-        double y = entity.getY();
-        double z = entity.getZ();
         
         // Security check to ensure entity exists
         if (!world.hasChunkAt(entity.blockPosition())) return;
 
         // If the key was pressed (type 0)
         if (type == 0) {
-            // CALL THE PROCEDURE HERE!
             ToggleTorchModeProcedure.execute(entity);
         }
-    }
-
-    @SubscribeEvent
-    public static void registerMessage(FMLCommonSetupEvent event) {
-        DrakonisMod.addNetworkMessage(FirstpassiveMessage.TYPE, FirstpassiveMessage.STREAM_CODEC, FirstpassiveMessage::handleData);
     }
 }
