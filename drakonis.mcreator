@@ -1,0 +1,81 @@
+{
+  "mod_elements": [
+    {
+      "name": "Drakonis",
+      "type": "tab",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "drakonis",
+      "metadata": {
+        "files": []
+      }
+    },
+    {
+      "name": "Olovtoshi",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "olovtoshi",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/drakonis/models/item/olovtoshi.json",
+          "src/main/java/net/mcreator/drakonis/item/OlovtoshiItem.java"
+        ]
+      }
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "tag_elements": {
+    "ITEMS:minecraft:enchantable/durability": [
+      "~CUSTOM:Olovtoshi"
+    ]
+  },
+  "tab_element_order": {},
+  "language_map": {
+    "en_us": {
+      "item_group.drakonis.drakonis": "Drakonis",
+      "item.drakonis.olovtoshi": "Olovtoshi"
+    }
+  },
+  "metadata": {
+    "files": [
+      "src/main/java/net/mcreator/drakonis/init/DrakonisModItems.java",
+      "src/main/resources/pack.mcmeta",
+      "src/main/java/net/mcreator/drakonis/mixin/LevelRendererMixin.java",
+      "src/main/java/net/mcreator/drakonis/mixin/CameraAccessor.java",
+      "src/main/java/net/mcreator/drakonis/mixin/LivingEntityRendererMixin.java",
+      "src/main/resources/META-INF/neoforge.mods.toml",
+      "src/main/resources/drakonis.mixins.json",
+      "src/main/java/net/mcreator/drakonis/mixin/PlayerAnimationMixin.java",
+      "src/main/java/net/mcreator/drakonis/mixin/PlayerAnimationRendererMixin.java",
+      "src/main/java/net/mcreator/drakonis/init/DrakonisModTabs.java",
+      "src/main/java/net/mcreator/drakonis/DrakonisModPlayerAnimationAPI.java",
+      "src/main/java/net/mcreator/drakonis/mixin/ItemInHandLayerMixin.java",
+      "src/main/java/net/mcreator/drakonis/mixin/ItemInHandRendererMixin.java",
+      "src/main/java/net/mcreator/drakonis/DrakonisMod.java",
+      "src/main/java/net/mcreator/drakonis/network/PlayPlayerAnimationMessage.java",
+      "src/main/java/net/mcreator/drakonis/mixin/EntityRenderDispatcherMixin.java"
+    ]
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": []
+  },
+  "workspaceSettings": {
+    "modid": "drakonis",
+    "modName": "Drakonis",
+    "version": "1.0.0",
+    "author": "MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Not specified",
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "neoforge-1.21.1",
+    "modElementsPackage": "net.mcreator.drakonis"
+  },
+  "mcreatorVersion": 202500345720
+}
