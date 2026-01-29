@@ -15,6 +15,7 @@ import net.mcreator.drakonis.DrakonisMod;
 
 public record FirstpassiveMessage(int eventType, int pressedms) implements CustomPacketPayload {
     public static final Type<FirstpassiveMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(DrakonisMod.MODID, "key_firstpassive"));
+    
     public static final StreamCodec<RegistryFriendlyByteBuf, FirstpassiveMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, FirstpassiveMessage message) -> {
         buffer.writeInt(message.eventType);
         buffer.writeInt(message.pressedms);
@@ -38,14 +39,10 @@ public record FirstpassiveMessage(int eventType, int pressedms) implements Custo
 
     public static void pressAction(Player entity, int type, int pressedms) {
         Level world = entity.level();
-        
-        // Security Check
         if (!world.hasChunkAt(entity.blockPosition())) return;
-
-        // Key Press Logic
         if (type == 0) {
-            // >>> THIS WAS THE ERROR. NOW IT IS FIXED <<<
-            ToggleTorchModeProcedure.execute(entity); 
+            // This runs the procedure when you press the key
+            ToggleTorchModeProcedure.execute(entity);
         }
     }
 }
