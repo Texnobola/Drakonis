@@ -27,6 +27,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 
 import net.mcreator.drakonis.init.DrakonisModTabs;
 import net.mcreator.drakonis.init.DrakonisModItems;
+import net.mcreator.drakonis.init.DrakonisModCuriosCompat;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.Map;
@@ -45,6 +46,9 @@ public class DrakonisMod {
 		// End of user code block mod constructor
 		NeoForge.EVENT_BUS.register(this);
 		modEventBus.addListener(this::registerNetworking);
+		if (ModList.get().isLoaded("curios")) {
+			modEventBus.addListener(DrakonisModCuriosCompat::registerCapabilities);
+		}
 
 		DrakonisModItems.REGISTRY.register(modEventBus);
 

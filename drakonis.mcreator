@@ -127,6 +127,16 @@
           "src/main/resources/data/drakonis/curios/slots/stoneplaceholder.json"
         ]
       }
+    },
+    {
+      "name": "Stonesplaces",
+      "type": "curiosbauble",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stonesplaces",
+      "metadata": {
+        "files": []
+      }
     }
   ],
   "variable_elements": [],
@@ -160,6 +170,8 @@
   },
   "metadata": {
     "files": [
+      "src/main/java/net/mcreator/drakonis/init/DrakonisModCuriosCompat.java",
+      "src/main/resources/data/drakonis/curios/entities/slots.json",
       "src/main/java/net/mcreator/drakonis/init/DrakonisModItems.java",
       "src/main/resources/pack.mcmeta",
       "src/main/java/net/mcreator/drakonis/mixin/LevelRendererMixin.java",
