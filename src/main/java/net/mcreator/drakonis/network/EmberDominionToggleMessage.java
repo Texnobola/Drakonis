@@ -35,6 +35,20 @@ public record EmberDominionToggleMessage(boolean isPressed) implements CustomPac
                     var data = player.getData(DrakonisModVariables.PLAYER_VARIABLES);
                     
                     if (message.isPressed) {
+                        // Check if already active - if so, deactivate instead
+                        if (data.isHoldingEmberDominion || data.emberDominionActive) {
+                            // Deactivate
+                            data.isHoldingEmberDominion = false;
+                            data.emberDominionActive = false;
+                            data.syncPlayerVariables(player);
+                            
+                            DrakonisMod.LOGGER.info("[EMBER DOM] Deactivating ember dominion");
+                            net.mcreator.drakonis.procedures.AnimationHelper.stopAnimation(player);
+                            
+                            player.sendSystemMessage(Component.literal("§cEmber Dominion DEACTIVATED"));
+                            return;
+                        }
+                        
                         // Button pressed - start animation
                         long currentTime = level.getGameTime();
                         long lastToggle = data.emberDominionLastToggle;
@@ -69,6 +83,10 @@ public record EmberDominionToggleMessage(boolean isPressed) implements CustomPac
                         data.emberDominionLastToggle = currentTime;
                         data.syncPlayerVariables(player);
                         
+                        // Send animation packet immediately
+                        DrakonisMod.LOGGER.info("[EMBER DOM] Sending animation packet immediately");
+                        net.mcreator.drakonis.procedures.AnimationHelper.playAnimation(player, "drakonis:ember_dominion_activate", true, false);
+                        
                         if (level instanceof net.minecraft.server.level.ServerLevel serverLevel) {
                             for (int i = 0; i < 100; i++) {
                                 double angle = Math.random() * Math.PI * 2;
@@ -84,9 +102,8 @@ public record EmberDominionToggleMessage(boolean isPressed) implements CustomPac
                             level.playSound(null, player.blockPosition(), net.minecraft.sounds.SoundEvents.FIRECHARGE_USE, net.minecraft.sounds.SoundSource.PLAYERS, 1.0F, 0.5F);
                         }
                     } else {
-                        // Button released - deactivate
-                        data.isHoldingEmberDominion = false;
-                        data.syncPlayerVariables(player);
+                        // Button released - do nothing, animation will play until completion
+                        DrakonisMod.LOGGER.info("[EMBER DOM] Button released, animation continues");
                     }
                 } catch (Exception e) {
                     DrakonisMod.LOGGER.error("Error in ember dominion toggle: ", e);
