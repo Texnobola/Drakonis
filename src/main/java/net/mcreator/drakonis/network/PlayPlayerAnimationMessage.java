@@ -42,11 +42,17 @@ public record PlayPlayerAnimationMessage(int player, String animation, boolean o
 					}
 					CompoundTag data = player.getPersistentData();
 					if (message.animation == null || message.animation.isEmpty()) {
-						data.putBoolean("ResetPlayerAnimation", true);
-						data.putBoolean("FirstPersonAnimation", false);
-						data.remove("PlayerCurrentAnimation");
-						data.remove("PlayerAnimationProgress");
-						DrakonisMod.LOGGER.info("[ANIM] Reset animation for player");
+						// Only reset animation if the player is NOT currently playing a custom animation
+						String currentAnim = data.getString("PlayerCurrentAnimation");
+						if (currentAnim == null || currentAnim.isEmpty()) {
+							data.putBoolean("ResetPlayerAnimation", true);
+							data.putBoolean("FirstPersonAnimation", false);
+							data.remove("PlayerCurrentAnimation");
+							data.remove("PlayerAnimationProgress");
+							DrakonisMod.LOGGER.info("[ANIM] Reset animation for player");
+						} else {
+							DrakonisMod.LOGGER.info("[ANIM] Skipping reset - custom animation currently playing: " + currentAnim);
+						}
 					} else {
 						data.putString("PlayerCurrentAnimation", message.animation);
 						data.putBoolean("OverrideCurrentAnimation", message.override);
