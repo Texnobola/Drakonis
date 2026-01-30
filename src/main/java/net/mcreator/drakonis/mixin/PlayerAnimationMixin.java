@@ -39,24 +39,26 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 		if (!master.equals("drakonis"))
 			return;
 		PlayerModel<T> model = (PlayerModel<T>) (Object) this;
-		resetModelPose(model);
 		Player player = null;
 		if (entityIn instanceof Player player_)
 			player = player_;
 		else
 			return;
-		DrakonisModPlayerAnimationAPI.PlayerAnimation animation = DrakonisModPlayerAnimationAPI.active_animations.get(player);
-		if (animation == null)
-			return;
-		if (animation.bones.get("left_arm") != null || animation.bones.get("torso") != null || animation.bones.get("right_arm") != null)
+		
+		// Check if player has an active animation
+		String playingAnimation = player.getPersistentData().getString("PlayerCurrentAnimation");
+		if (!playingAnimation.isEmpty()) {
+			// Reset model to default pose before applying animation
+			resetModelPose(model);
+			// Disable ALL vanilla animations
 			model.attackTime = 0;
-		model.crouching = false;
+			model.crouching = false;
+			model.riding = false;
+		}
 	}
 
 	@Inject(method = "setupAnim", at = @At(value = "TAIL"))
 	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci) {
-		if (ageInTicks <= 0)
-			return;
 		if (!master.equals("drakonis")) {
 			if (!DrakonisModPlayerAnimationAPI.animations.isEmpty())
 				DrakonisModPlayerAnimationAPI.animations.clear();
@@ -72,10 +74,12 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 		String playingAnimation = data.getString("PlayerCurrentAnimation");
 		boolean overrideAnimation = data.getBoolean("OverrideCurrentAnimation");
 		boolean firstPerson = data.getBoolean("FirstPersonAnimation") && mc.options.getCameraType().isFirstPerson() && player == mc.player && mc.screen == null;
+		DrakonisMod.LOGGER.info("[ANIM] setupAnim tail: playingAnimation='" + playingAnimation + "' override=" + overrideAnimation);
 		if (data.getBoolean("ResetPlayerAnimation")) {
 			data.remove("ResetPlayerAnimation");
 			data.remove("LastAnimationProgress");
 			data.remove("PlayedSoundTimes");
+			data.remove("LastTickTime");
 			DrakonisModPlayerAnimationAPI.active_animations.put(player, null);
 		}
 		if (playingAnimation.isEmpty()) {
@@ -90,6 +94,7 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 			data.remove("PlayerAnimationProgress");
 			data.remove("LastAnimationProgress");
 			data.remove("PlayedSoundTimes");
+			data.remove("LastTickTime");
 			firstPerson = data.getBoolean("FirstPersonAnimation") && mc.options.getCameraType().isFirstPerson() && player == mc.player && mc.screen == null;
 			DrakonisModPlayerAnimationAPI.active_animations.put(player, null);
 		}
@@ -97,9 +102,11 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 		if (animation == null) {
 			animation = DrakonisModPlayerAnimationAPI.animations.get(playingAnimation);
 			if (animation == null) {
-				DrakonisMod.LOGGER.info("Attepted to play null animation " + playingAnimation + ", did animations fail to load?");
+				DrakonisMod.LOGGER.error("[ANIM] Animation not found: " + playingAnimation);
+				DrakonisMod.LOGGER.error("[ANIM] Available: " + DrakonisModPlayerAnimationAPI.animations.keySet());
 				return;
 			}
+			DrakonisMod.LOGGER.info("[ANIM] Starting animation: " + playingAnimation);
 			DrakonisModPlayerAnimationAPI.active_animations.put(player, animation);
 		}
 		float animationProgress;
@@ -110,30 +117,38 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 			data.putFloat("PlayerAnimationProgress", animationProgress);
 			data.putFloat("LastTickTime", ageInTicks);
 			data.putFloat("LastAnimationProgress", 0f);
+			DrakonisMod.LOGGER.info("[ANIM] Init progress for: " + playingAnimation + " length: " + animation.length);
 		} else {
 			animationProgress = data.getFloat("PlayerAnimationProgress");
 			float lastTickTime = data.getFloat("LastTickTime");
-			float deltaTime = (ageInTicks - lastTickTime) / 20f; // Convert ticks to seconds
-			animationProgress += deltaTime;
-			data.putFloat("PlayerAnimationProgress", animationProgress);
+			float deltaTime = (ageInTicks - lastTickTime) / 20f;
+			if (deltaTime > 0 && deltaTime < 0.5f) {
+				animationProgress += deltaTime;
+				data.putFloat("PlayerAnimationProgress", animationProgress);
+				if (animationProgress % 1.0f < 0.1f) {
+					DrakonisMod.LOGGER.info("[ANIM] Progress: " + animationProgress + "/" + animation.length);
+				}
+			}
 			data.putFloat("LastTickTime", ageInTicks);
+
 			if (animationProgress >= animation.length) {
 				if (!animation.hold_on_last_frame && !animation.loop) {
 					data.remove("PlayerCurrentAnimation");
 					data.remove("PlayerAnimationProgress");
 					data.remove("LastAnimationProgress");
 					data.remove("PlayedSoundTimes");
+					data.remove("LastTickTime");
 					data.putBoolean("ResetPlayerAnimation", true);
 					data.putBoolean("FirstPersonAnimation", false);
 					DrakonisModPlayerAnimationAPI.active_animations.put(player, null);
-					animationProgress = animation.length;
+					resetModelPose(model);
+					return;
 				} else if (animation.hold_on_last_frame) {
 					data.putFloat("PlayerAnimationProgress", animation.length);
 				} else if (animation.loop) {
 					data.remove("PlayerAnimationProgress");
 					data.remove("LastAnimationProgress");
-					data.remove("PlayedSoundTimes");
-				}
+					data.remove("PlayedSoundTimes");				data.remove("LastTickTime");				}
 			}
 		}
 		if (!animation.soundEffects.isEmpty()) {
@@ -162,8 +177,6 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 			data.put("PlayedSoundTimes", playedSoundsTag);
 			data.putFloat("LastAnimationProgress", animationProgress);
 		}
-		if (!data.getBoolean("FirstPersonAnimation") && mc.options.getCameraType().isFirstPerson() && player == mc.player && mc.screen == null)
-			return;
 		// Apply each bone's transformations
 		for (Map.Entry<String, DrakonisModPlayerAnimationAPI.PlayerBone> entry : animation.bones.entrySet()) {
 			String boneName = entry.getKey();
@@ -178,13 +191,17 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 				modelPart.yRot = (float) Math.toRadians(rotation.y);
 				modelPart.zRot = (float) Math.toRadians(rotation.z);
 			}
-			// Apply position (don't apply if null - keep default position)
+			// Apply position
 			Vec3 position = DrakonisModPlayerAnimationAPI.PlayerBone.interpolate(bone.positions, animationProgress, player);
 			if (position != null) {
-				// Position offsets are relative, not absolute
-				modelPart.x += (float) position.x;
-				modelPart.y -= (float) position.y;
-				modelPart.z += (float) position.z;
+				// Get default position for this bone
+				float defaultX = getDefaultX(boneName);
+				float defaultY = getDefaultY(boneName);
+				float defaultZ = getDefaultZ(boneName);
+				// Apply position as offset from default
+				modelPart.x = defaultX + (float) position.x;
+				modelPart.y = defaultY - (float) position.y;
+				modelPart.z = defaultZ + (float) position.z;
 			}
 			// Apply scale
 			Vec3 scale = DrakonisModPlayerAnimationAPI.PlayerBone.interpolate(bone.scales, animationProgress, player);
@@ -234,20 +251,36 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 		model.head.setPos(0.0F, 0.0F, 0.0F);
 		model.rightArm.z = 0.0F;
 		model.rightArm.x = -5.0F;
+		model.rightArm.y = 2.0F;
 		model.leftArm.z = 0.0F;
 		model.leftArm.x = 5.0F;
+		model.leftArm.y = 2.0F;
 		model.body.xRot = 0.0F;
 		model.rightLeg.z = 0.1F;
 		model.leftLeg.z = 0.1F;
 		model.rightLeg.y = 12.0F;
 		model.leftLeg.y = 12.0F;
 		model.head.y = 0.0F;
-		model.head.zRot = 0f;
+		model.head.xRot = 0.0F;
+		model.head.yRot = 0.0F;
+		model.head.zRot = 0.0F;
 		model.body.y = 0.0F;
-		model.body.x = 0f;
-		model.body.z = 0f;
-		model.body.yRot = 0;
-		model.body.zRot = 0;
+		model.body.x = 0.0F;
+		model.body.z = 0.0F;
+		model.body.yRot = 0.0F;
+		model.body.zRot = 0.0F;
+		model.rightArm.xRot = 0.0F;
+		model.rightArm.yRot = 0.0F;
+		model.rightArm.zRot = 0.0F;
+		model.leftArm.xRot = 0.0F;
+		model.leftArm.yRot = 0.0F;
+		model.leftArm.zRot = 0.0F;
+		model.rightLeg.xRot = 0.0F;
+		model.rightLeg.yRot = 0.0F;
+		model.rightLeg.zRot = 0.0F;
+		model.leftLeg.xRot = 0.0F;
+		model.leftLeg.yRot = 0.0F;
+		model.leftLeg.zRot = 0.0F;
 		model.head.xScale = ModelPart.DEFAULT_SCALE;
 		model.head.yScale = ModelPart.DEFAULT_SCALE;
 		model.head.zScale = ModelPart.DEFAULT_SCALE;
@@ -270,6 +303,7 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 
 	private ModelPart getModelPart(PlayerModel<T> model, String boneName) {
 		switch (boneName) {
+			case "body":
 			case "torso" :
 				return model.body;
 			case "head" :
@@ -284,6 +318,34 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 				return model.leftLeg;
 			default :
 				return null;
+		}
+	}
+
+	private float getDefaultX(String boneName) {
+		switch (boneName) {
+			case "right_arm": return -5.0F;
+			case "left_arm": return 5.0F;
+			case "right_leg": return -1.9F;
+			case "left_leg": return 1.9F;
+			default: return 0.0F;
+		}
+	}
+
+	private float getDefaultY(String boneName) {
+		switch (boneName) {
+			case "right_arm": return 2.0F;
+			case "left_arm": return 2.0F;
+			case "right_leg": return 12.0F;
+			case "left_leg": return 12.0F;
+			default: return 0.0F;
+		}
+	}
+
+	private float getDefaultZ(String boneName) {
+		switch (boneName) {
+			case "right_leg": return 0.1F;
+			case "left_leg": return 0.1F;
+			default: return 0.0F;
 		}
 	}
 }

@@ -38,10 +38,8 @@ public record FirstpassiveMessage(int eventType, int pressedms) implements Custo
     }
 
     public static void pressAction(Player entity, int type, int pressedms) {
-        Level world = entity.level();
-        if (!world.hasChunkAt(entity.blockPosition())) return;
         if (type == 0) {
-            // This runs the procedure and passes the 'entity' (the player)
+            // THE FIX: Pass 'entity' to the procedure!
             ToggleTorchModeProcedure.execute(entity);
         }
     }

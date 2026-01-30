@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "palovjon:item/gpt-image-1.5_a_i_need_you_to_help_m"
+  }
+}

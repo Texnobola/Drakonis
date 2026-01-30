@@ -68,6 +68,10 @@ public class DrakonisModVariables {
 		PlayerVariables clone = new PlayerVariables();
 		if (!event.isWasDeath()) {
 			clone.player_torch_active = original.player_torch_active;
+			clone.emberDominionActive = original.emberDominionActive;
+			clone.emberDominionLastToggle = original.emberDominionLastToggle;
+			clone.emberDominionTickCounter = original.emberDominionTickCounter;
+			clone.isHoldingConcentration = original.isHoldingConcentration;
 		}
 		event.getEntity().setData(PLAYER_VARIABLES, clone);
 	}
@@ -75,17 +79,95 @@ public class DrakonisModVariables {
 	public static class PlayerVariables implements INBTSerializable<CompoundTag> {
 		boolean _syncDirty = false;
 		public boolean player_torch_active = false;
+		public boolean emberDominionActive = false;
+		public boolean isHoldingEmberDominion = false;
+		public long emberDominionActivationTime = 0;
+		public long emberDominionStartTime = 0;
+		public long emberDominionLastToggle = 0;
+		public int emberDominionTickCounter = 0;
+		public boolean fireBlastCharging = false;
+		public long fireBlastChargeTime = 0;
+		public long dragonStrikeICDUntil = 0;
+		public boolean isHoldingConcentration = false;
+		public boolean concentrationAnimationPlayed = false;
+		public boolean dragonConcentrationActivated = false;
+		public long dragonConcentrationActivationTime = 0;
+		public long dragonConcentrationStartTime = 0;
+		public long dragonConcentrationUntil = 0;
+		public long dragonConcentrationToggleCooldown = 0;
+		public long dragonConcentrationOnProcCooldown = 0;
+		public int dragonConsecutiveCount = 0;
+		public long dragonConsecutiveWindowUntil = 0;
+		public long dragonImmortalityUntil = 0;
+		public double dragonStrikeProcChance = 0.05;
+		public boolean hasSelectedLanguage = false;
+		public long fireStoneMainHandCookStart = 0;
+		public long fireStoneOffHandCookStart = 0;
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
 			CompoundTag nbt = new CompoundTag();
 			nbt.putBoolean("player_torch_active", player_torch_active);
+			nbt.putBoolean("emberDominionActive", emberDominionActive);
+			nbt.putBoolean("isHoldingEmberDominion", isHoldingEmberDominion);
+			nbt.putLong("emberDominionActivationTime", emberDominionActivationTime);
+			nbt.putLong("emberDominionStartTime", emberDominionStartTime);
+			nbt.putLong("emberDominionLastToggle", emberDominionLastToggle);
+			nbt.putInt("emberDominionTickCounter", emberDominionTickCounter);
+			nbt.putBoolean("fireBlastCharging", fireBlastCharging);
+			nbt.putLong("fireBlastChargeTime", fireBlastChargeTime);
+			nbt.putLong("dragonStrikeICDUntil", dragonStrikeICDUntil);
+			nbt.putBoolean("isHoldingConcentration", isHoldingConcentration);
+			nbt.putBoolean("concentrationAnimationPlayed", concentrationAnimationPlayed);
+			nbt.putBoolean("dragonConcentrationActivated", dragonConcentrationActivated);
+			nbt.putLong("dragonConcentrationActivationTime", dragonConcentrationActivationTime);
+			nbt.putLong("dragonConcentrationStartTime", dragonConcentrationStartTime);
+			nbt.putLong("dragonConcentrationUntil", dragonConcentrationUntil);
+			nbt.putLong("dragonConcentrationToggleCooldown", dragonConcentrationToggleCooldown);
+			nbt.putLong("dragonConcentrationOnProcCooldown", dragonConcentrationOnProcCooldown);
+			nbt.putInt("dragonConsecutiveCount", dragonConsecutiveCount);
+			nbt.putLong("dragonConsecutiveWindowUntil", dragonConsecutiveWindowUntil);
+			nbt.putLong("dragonImmortalityUntil", dragonImmortalityUntil);
+			nbt.putDouble("dragonStrikeProcChance", dragonStrikeProcChance);
+			nbt.putBoolean("hasSelectedLanguage", hasSelectedLanguage);
+			nbt.putLong("fireStoneMainHandCookStart", fireStoneMainHandCookStart);
+			nbt.putLong("fireStoneOffHandCookStart", fireStoneOffHandCookStart);
 			return nbt;
 		}
 
 		@Override
 		public void deserializeNBT(HolderLookup.Provider lookupProvider, CompoundTag nbt) {
 			player_torch_active = nbt.getBoolean("player_torch_active");
+			emberDominionActive = nbt.getBoolean("emberDominionActive");
+			isHoldingEmberDominion = nbt.getBoolean("isHoldingEmberDominion");
+			emberDominionActivationTime = nbt.getLong("emberDominionActivationTime");
+			emberDominionStartTime = nbt.getLong("emberDominionStartTime");
+			emberDominionLastToggle = nbt.getLong("emberDominionLastToggle");
+			emberDominionTickCounter = nbt.getInt("emberDominionTickCounter");
+			fireBlastCharging = nbt.getBoolean("fireBlastCharging");
+			fireBlastChargeTime = nbt.getLong("fireBlastChargeTime");
+			dragonStrikeICDUntil = nbt.getLong("dragonStrikeICDUntil");
+			isHoldingConcentration = nbt.getBoolean("isHoldingConcentration");
+			concentrationAnimationPlayed = nbt.getBoolean("concentrationAnimationPlayed");
+			dragonConcentrationActivated = nbt.getBoolean("dragonConcentrationActivated");
+			dragonConcentrationActivationTime = nbt.getLong("dragonConcentrationActivationTime");
+			dragonConcentrationStartTime = nbt.getLong("dragonConcentrationStartTime");
+			dragonConcentrationUntil = nbt.getLong("dragonConcentrationUntil");
+			dragonConcentrationToggleCooldown = nbt.getLong("dragonConcentrationToggleCooldown");
+			dragonConcentrationOnProcCooldown = nbt.getLong("dragonConcentrationOnProcCooldown");
+			dragonConsecutiveCount = nbt.getInt("dragonConsecutiveCount");
+			dragonConsecutiveWindowUntil = nbt.getLong("dragonConsecutiveWindowUntil");
+			dragonImmortalityUntil = nbt.getLong("dragonImmortalityUntil");
+			dragonStrikeProcChance = nbt.getDouble("dragonStrikeProcChance");
+			if (dragonStrikeProcChance == 0) dragonStrikeProcChance = 0.05;
+			hasSelectedLanguage = nbt.getBoolean("hasSelectedLanguage");
+			fireStoneMainHandCookStart = nbt.getLong("fireStoneMainHandCookStart");
+			fireStoneOffHandCookStart = nbt.getLong("fireStoneOffHandCookStart");
+		}
+
+		public void syncPlayerVariables(net.minecraft.world.entity.player.Player player) {
+			if (player instanceof ServerPlayer serverPlayer)
+				PacketDistributor.sendToPlayer(serverPlayer, new PlayerVariablesSyncMessage(this));
 		}
 
 		public void markSyncDirty() {

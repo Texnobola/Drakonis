@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "palovjon:item/chatgpt_image_dec_24_2025_07_06_06_pm"
+  }
+}

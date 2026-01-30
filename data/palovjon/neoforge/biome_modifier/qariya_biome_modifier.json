@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "plains",
+  "spawners": {
+    "type": "palovjon:qariya",
+    "weight": 20,
+    "minCount": 4,
+    "maxCount": 4
+  }
+}

@@ -436,32 +436,41 @@ public class DrakonisModPlayerAnimationAPI {
 		private static void loadClientSideAnimations() {
 			List<JsonObject> jsons = new ArrayList<>();
 			List<String> namespaces = new ArrayList<>();
+			System.out.println("[Drakonis] Starting animation loading...");
 			ModList.get().forEachModFile(modFile -> {
 				String modId = modFile.getModInfos().get(0).getModId();
+				System.out.println("[Drakonis] Checking mod: " + modId);
 				Path rootPath = modFile.findResource("data");
 				if (rootPath == null || !Files.exists(rootPath)) {
+					System.out.println("[Drakonis] No data folder for: " + modId);
 					return;
 				}
 				try {
 					Path animationsPath = rootPath.resolve(modId).resolve("bedrock_animations");
+					System.out.println("[Drakonis] Checking path: " + animationsPath);
 					if (Files.exists(animationsPath) && Files.isDirectory(animationsPath)) {
+						System.out.println("[Drakonis] Found animations folder for: " + modId);
 						try (Stream<Path> paths = Files.walk(animationsPath)) {
 							paths.filter(Files::isRegularFile).filter(path -> path.toString().endsWith(".json")).forEach(animationFile -> {
 								try {
+									System.out.println("[Drakonis] Loading animation file: " + animationFile);
 									String content = Files.readString(animationFile, StandardCharsets.UTF_8);
 									JsonObject jsonObject = new Gson().fromJson(content, JsonObject.class);
 									jsons.add(jsonObject);
 									namespaces.add(modId);
 								} catch (Exception e) {
 									System.err.println("Failed to load animation file: " + animationFile + " - " + e.getMessage());
+									e.printStackTrace();
 								}
 							});
 						}
 					}
 				} catch (Exception e) {
 					System.err.println("Failed to process animations for mod: " + modId + " - " + e.getMessage());
+					e.printStackTrace();
 				}
 			});
+			System.out.println("[Drakonis] Found " + jsons.size() + " animation files");
 			if (!jsons.isEmpty()) {
 				loadAnimations(jsons, namespaces);
 			}
@@ -476,6 +485,7 @@ public class DrakonisModPlayerAnimationAPI {
 					JsonObject animationsWrapper = new JsonObject();
 					for (Map.Entry<String, JsonElement> entry : sourceAnimations.entrySet()) {
 						String animationName = namespaces.get(namespaceIndex) + ":" + entry.getKey();
+						System.out.println("[Drakonis] Registering animation: " + animationName);
 						namespacedAnimations.add(animationName, entry.getValue());
 					}
 					animationsWrapper.add("animations", namespacedAnimations);
@@ -483,6 +493,7 @@ public class DrakonisModPlayerAnimationAPI {
 				}
 				namespaceIndex++;
 			}
+			System.out.println("[Drakonis] Total animations loaded: " + DrakonisModPlayerAnimationAPI.animations.size());
 		}
 	}
 }

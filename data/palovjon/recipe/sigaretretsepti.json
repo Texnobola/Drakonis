@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "palovjon:nikotin",
+    "minecraft:paper"
+  ],
+  "result": {
+    "id": "palovjon:sigaret",
+    "count": 1
+  }
+}

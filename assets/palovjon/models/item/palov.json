@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "palovjon:item/gpt-image-1.5_b_you_are_a_minecraft_-removebg-preview"
+  }
+}

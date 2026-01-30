@@ -47,6 +47,26 @@ public class DrakonisMod {
 		// End of user code block mod constructor
 		NeoForge.EVENT_BUS.register(this);
 		modEventBus.addListener(this::registerNetworking);
+		
+		// Register network messages
+		addNetworkMessage(net.mcreator.drakonis.network.FirstpassiveMessage.TYPE, 
+			net.mcreator.drakonis.network.FirstpassiveMessage.STREAM_CODEC, 
+			net.mcreator.drakonis.network.FirstpassiveMessage::handleData);
+		addNetworkMessage(net.mcreator.drakonis.network.EmberDominionToggleMessage.TYPE,
+			net.mcreator.drakonis.network.EmberDominionToggleMessage.STREAM_CODEC,
+			net.mcreator.drakonis.network.EmberDominionToggleMessage::handleData);
+		addNetworkMessage(net.mcreator.drakonis.network.FireBlastChargeMessage.TYPE,
+			net.mcreator.drakonis.network.FireBlastChargeMessage.STREAM_CODEC,
+			net.mcreator.drakonis.network.FireBlastChargeMessage::handleData);
+		addNetworkMessage(net.mcreator.drakonis.network.DragonConcentrationToggleMessage.TYPE,
+			net.mcreator.drakonis.network.DragonConcentrationToggleMessage.STREAM_CODEC,
+			net.mcreator.drakonis.network.DragonConcentrationToggleMessage::handleData);
+		addNetworkMessage(net.mcreator.drakonis.network.LanguageSelectMessage.TYPE,
+			net.mcreator.drakonis.network.LanguageSelectMessage.STREAM_CODEC,
+			net.mcreator.drakonis.network.LanguageSelectMessage::handleData);
+		addNetworkMessage(net.mcreator.drakonis.network.PlayPlayerAnimationMessage.TYPE,
+			net.mcreator.drakonis.network.PlayPlayerAnimationMessage.STREAM_CODEC,
+			net.mcreator.drakonis.network.PlayPlayerAnimationMessage::handleData);
 		if (ModList.get().isLoaded("curios")) {
 			modEventBus.addListener(DrakonisModCuriosCompat::registerCapabilities);
 		}
@@ -98,6 +118,16 @@ public class DrakonisMod {
 		});
 		actions.forEach(e -> e.getA().run());
 		workQueue.removeAll(actions);
+	}
+
+	@SubscribeEvent
+	public void onPlayerTick(net.neoforged.neoforge.event.tick.PlayerTickEvent.Post event) {
+		if (event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) {
+			net.mcreator.drakonis.procedures.EmberDominionTickProcedure.execute(player);
+			net.mcreator.drakonis.procedures.DragonConcentrationTickProcedure.execute(player);
+			net.mcreator.drakonis.procedures.FireBlastChargingTickProcedure.execute(player);
+		}
+		net.mcreator.drakonis.procedures.FireStoneCookingProcedure.onPlayerTick(event);
 	}
 
 	public static class CuriosApiHelper {

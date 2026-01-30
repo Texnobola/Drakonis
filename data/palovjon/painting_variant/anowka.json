@@ -1,0 +1,11 @@
+{
+  "asset_id": "palovjon:anowka",
+  "height": 2,
+  "width": 1,
+  "title": {
+    "translate": "painting.palovjon.anowka.title"
+  },
+  "author": {
+    "translate": "painting.palovjon.anowka.author"
+  }
+}

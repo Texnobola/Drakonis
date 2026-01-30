@@ -1,0 +1,7 @@
+{
+  "parent": "palovjon:custom/sigaret",
+  "textures": {
+    "0": "palovjon:block/sigaret_texture",
+    "particle": "palovjon:item/sigaret_texture"
+  }
+}

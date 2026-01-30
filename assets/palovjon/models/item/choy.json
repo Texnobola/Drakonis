@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "palovjon:item/gemini-3-pro-image-preview__nano-banana-pro__b_create_a_16x16_pixel-removebg-preview"
+  }
+}

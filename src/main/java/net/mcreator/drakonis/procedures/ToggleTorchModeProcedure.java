@@ -1,18 +1,31 @@
 package net.mcreator.drakonis.procedures;
 
+import top.theillusivec4.curios.api.CuriosApi;
+
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.drakonis.init.DrakonisModItems;
+
 public class ToggleTorchModeProcedure {
     public static void execute(Entity entity) {
-        if (entity == null) return;
+        if (entity == null || !(entity instanceof LivingEntity)) return;
 
-        // Get the exact block position where the player is standing
-        BlockPos pos = entity.blockPosition();
+        LivingEntity livingEntity = (LivingEntity) entity;
         
-        // Place the torch at the player's feet
-        // The '3' tells the game to update neighbors and notify the client
-        entity.level().setBlock(pos, Blocks.TORCH.defaultBlockState(), 3);
+        // Check if Olov Toshi is equipped in any curios slot
+        var curiosInv = CuriosApi.getCuriosInventory(livingEntity);
+        if (curiosInv.isPresent()) {
+            boolean hasOlovToshi = curiosInv.get().findFirstCurio(DrakonisModItems.OLOVTOSHI.get()).isPresent();
+            
+            if (hasOlovToshi) {
+                BlockPos pos = livingEntity.blockPosition();
+                if (livingEntity.level().isEmptyBlock(pos)) {
+                    livingEntity.level().setBlock(pos, Blocks.TORCH.defaultBlockState(), 3);
+                }
+            }
+        }
     }
 }
