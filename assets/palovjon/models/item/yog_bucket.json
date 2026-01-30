@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "palovjon:item/gpt-image-1.5_a_you_are_an_expert_mi-removebg-preview"
-  }
-}

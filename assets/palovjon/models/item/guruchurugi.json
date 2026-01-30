@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "palovjon:item/gpt-image-1.5_b_make_rice_seed_for_m"
-  }
-}
