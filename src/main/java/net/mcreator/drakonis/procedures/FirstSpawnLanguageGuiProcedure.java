@@ -13,14 +13,20 @@ import net.mcreator.drakonis.client.gui.LanguageSelectScreen;
 
 @EventBusSubscriber(value = Dist.CLIENT)
 public class FirstSpawnLanguageGuiProcedure {
+    private static boolean languageScreenShown = false;
+    
     @SubscribeEvent
     public static void onPlayerJoinWorld(EntityJoinLevelEvent event) {
         if (event.getEntity() instanceof Player player && player.level().isClientSide) {
-            var data = player.getData(DrakonisModVariables.PLAYER_VARIABLES);
-            if (!data.hasSelectedLanguage) {
-                Minecraft.getInstance().execute(() -> {
-                    Minecraft.getInstance().setScreen(new LanguageSelectScreen());
-                });
+            // Only show language selection once per client session
+            if (!languageScreenShown) {
+                var data = player.getData(DrakonisModVariables.PLAYER_VARIABLES);
+                if (!data.hasSelectedLanguage) {
+                    languageScreenShown = true;
+                    Minecraft.getInstance().execute(() -> {
+                        Minecraft.getInstance().setScreen(new LanguageSelectScreen());
+                    });
+                }
             }
         }
     }

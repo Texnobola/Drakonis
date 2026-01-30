@@ -42,6 +42,23 @@ public record DragonConcentrationToggleMessage(boolean isPressed) implements Cus
                     DrakonisMod.LOGGER.info("[DRAGON CONC] Button pressed=" + message.isPressed + " at worldTime=" + worldTime);
                     
                     if (message.isPressed) {
+                        // Check if already active - if so, deactivate instead
+                        if (data.isHoldingConcentration || data.dragonConcentrationActivated) {
+                            // Deactivate
+                            data.isHoldingConcentration = false;
+                            data.dragonConcentrationActivated = false;
+                            data.concentrationAnimationPlayed = false;
+                            data.dragonConcentrationUntil = 0;
+                            data.dragonConcentrationToggleCooldown = worldTime + TOGGLE_COOLDOWN;
+                            data.syncPlayerVariables(player);
+                            
+                            DrakonisMod.LOGGER.info("[DRAGON CONC] Deactivating concentration");
+                            net.mcreator.drakonis.procedures.AnimationHelper.stopAnimation(player);
+                            
+                            player.sendSystemMessage(Component.literal("§cConcentration DEACTIVATED"));
+                            return;
+                        }
+                        
                         // Button pressed - start charging animation
                         boolean hasFireStone = false;
                         for (int i = 0; i < 9; i++) {
@@ -96,18 +113,8 @@ public record DragonConcentrationToggleMessage(boolean isPressed) implements Cus
                             }
                         }
                     } else {
-                        // Button released - deactivate immediately and stop animation
-                        data.isHoldingConcentration = false;
-                        data.concentrationAnimationPlayed = false;
-                        data.dragonConcentrationUntil = 0;
-                        data.dragonConcentrationToggleCooldown = worldTime + TOGGLE_COOLDOWN;
-                        data.syncPlayerVariables(player);
-                        
-                        // Stop the animation immediately when deactivating
-                        DrakonisMod.LOGGER.info("[DRAGON CONC] Stopping animation due to deactivation");
-                        net.mcreator.drakonis.procedures.AnimationHelper.stopAnimation(player);
-                        
-                        player.sendSystemMessage(Component.literal("§cConcentration DEACTIVATED"));
+                        // Button released - do nothing, animation will play until completion
+                        DrakonisMod.LOGGER.info("[DRAGON CONC] Button released, animation continues");
                     }
                 } catch (Exception e) {
                     DrakonisMod.LOGGER.error("Error in concentration toggle: ", e);
