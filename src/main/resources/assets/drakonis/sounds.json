@@ -1,0 +1,12 @@
+{
+  "hakari_dance": {
+    "category": "player",
+    "sounds": [
+      {
+        "name": "drakonis:hakari_dance",
+        "stream": true,
+        "volume": 1.0
+      }
+    ]
+  }
+}
