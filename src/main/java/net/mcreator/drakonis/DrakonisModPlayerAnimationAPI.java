@@ -424,7 +424,7 @@ public class DrakonisModPlayerAnimationAPI {
 		}
 	}
 
-	@EventBusSubscriber(Dist.CLIENT)
+	@EventBusSubscriber(value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 	public static class AnimationLoader {
 		@SubscribeEvent
 		public static void onClientSetup(FMLClientSetupEvent event) {

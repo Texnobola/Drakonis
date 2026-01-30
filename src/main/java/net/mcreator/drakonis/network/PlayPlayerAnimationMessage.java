@@ -15,7 +15,7 @@ import net.minecraft.nbt.CompoundTag;
 
 import net.mcreator.drakonis.DrakonisMod;
 
-@EventBusSubscriber
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public record PlayPlayerAnimationMessage(int player, String animation, boolean override, boolean firstPerson) implements CustomPacketPayload {
 
 	public static final Type<PlayPlayerAnimationMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(DrakonisMod.MODID, "play_player_animation"));
