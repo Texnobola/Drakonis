@@ -42,12 +42,34 @@ public record PlayPlayerAnimationMessage(int player, String animation, boolean o
 					}
 					CompoundTag data = player.getPersistentData();
 					if (message.animation == null || message.animation.isEmpty()) {
-						// Reset animation - clear everything
-						data.putBoolean("ResetPlayerAnimation", true);
-						data.putBoolean("FirstPersonAnimation", false);
-						data.remove("PlayerCurrentAnimation");
-						data.remove("PlayerAnimationProgress");
-						DrakonisMod.LOGGER.info("[ANIM] Reset animation for player");
+						// Only reset if there's a looping animation (like Fire Blast) or no animation
+						String currentAnim = data.getString("PlayerCurrentAnimation");
+						
+						// Always allow reset if nothing is playing
+						if (currentAnim == null || currentAnim.isEmpty()) {
+							data.putBoolean("ResetPlayerAnimation", true);
+							data.putBoolean("FirstPersonAnimation", false);
+							data.remove("PlayerCurrentAnimation");
+							data.remove("PlayerAnimationProgress");
+							DrakonisMod.LOGGER.info("[ANIM] Reset animation for player");
+						} else {
+							// Check if the current animation is one-shot (not looping)
+							// These animations should NOT be reset while playing
+							boolean isOneShotAnimation = currentAnim.contains("dragon_concentration") || 
+														currentAnim.contains("ember_dominion") ||
+														currentAnim.contains("dragon_strike");
+							
+							if (!isOneShotAnimation) {
+								// This is a looping animation like fire_blast_charge - safe to reset
+								data.putBoolean("ResetPlayerAnimation", true);
+								data.putBoolean("FirstPersonAnimation", false);
+								data.remove("PlayerCurrentAnimation");
+								data.remove("PlayerAnimationProgress");
+								DrakonisMod.LOGGER.info("[ANIM] Reset animation for player");
+							} else {
+								DrakonisMod.LOGGER.info("[ANIM] Skipping reset - one-shot animation currently playing: " + currentAnim);
+							}
+						}
 					} else {
 						data.putString("PlayerCurrentAnimation", message.animation);
 						data.putBoolean("OverrideCurrentAnimation", message.override);
