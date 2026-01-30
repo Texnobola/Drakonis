@@ -54,13 +54,13 @@ public class EmberDominionTickProcedure {
                 player.sendSystemMessage(net.minecraft.network.chat.Component.literal("§6§lEmber Dominion §eACTIVATING..."));
             }
             
-            if (holdTime >= 120) {
-                // Animation complete (6 seconds) - activate ability
+            if (holdTime >= 200) {
+                // Animation complete (10 seconds) - activate ability
                 data.isHoldingEmberDominion = false;
                 data.emberDominionActive = true;
                 data.syncPlayerVariables(player);
                 
-                // Play the Hakari dance sound!
+                // Play the epic dance music!
                 if (level instanceof ServerLevel serverLevel) {
                     serverLevel.playSound(null, player.blockPosition(), 
                         net.minecraft.core.registries.BuiltInRegistries.SOUND_EVENT.get(

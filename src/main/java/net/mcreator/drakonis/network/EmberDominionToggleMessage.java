@@ -76,9 +76,9 @@ public record EmberDominionToggleMessage(boolean isPressed) implements CustomPac
                         }
                         if (!hasFireStone) return;
                         
-                        // Set holding state - animation is 6 seconds (120 ticks)
+                        // Set holding state - animation is 10 seconds (200 ticks)
                         data.isHoldingEmberDominion = true;
-                        data.emberDominionActivationTime = currentTime + 120; // 6 seconds * 20 ticks
+                        data.emberDominionActivationTime = currentTime + 200; // 10 seconds * 20 ticks
                         data.emberDominionStartTime = currentTime; // Store when holding started
                         data.emberDominionLastToggle = currentTime;
                         data.syncPlayerVariables(player);
