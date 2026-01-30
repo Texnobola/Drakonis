@@ -96,11 +96,16 @@ public record DragonConcentrationToggleMessage(boolean isPressed) implements Cus
                             }
                         }
                     } else {
-                        // Button released - deactivate
+                        // Button released - deactivate immediately and stop animation
                         data.isHoldingConcentration = false;
+                        data.concentrationAnimationPlayed = false;
                         data.dragonConcentrationUntil = 0;
                         data.dragonConcentrationToggleCooldown = worldTime + TOGGLE_COOLDOWN;
                         data.syncPlayerVariables(player);
+                        
+                        // Stop the animation immediately when deactivating
+                        DrakonisMod.LOGGER.info("[DRAGON CONC] Stopping animation due to deactivation");
+                        net.mcreator.drakonis.procedures.AnimationHelper.stopAnimation(player);
                         
                         player.sendSystemMessage(Component.literal("§cConcentration DEACTIVATED"));
                     }

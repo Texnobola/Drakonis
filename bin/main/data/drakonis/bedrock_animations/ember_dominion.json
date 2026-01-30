@@ -3,7 +3,7 @@
   "animations": {
     "ember_dominion_activate": {
       "animation_length": 5.0,
-      "loop": true,
+      "loop": false,
       "bones": {
         "right_arm": {
           "rotation": {

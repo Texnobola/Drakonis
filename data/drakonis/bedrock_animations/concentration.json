@@ -3,7 +3,7 @@
   "animations": {
     "dragon_concentration": {
       "animation_length": 10.0,
-      "loop": true,
+      "loop": false,
       "bones": {
         "right_arm": {
           "rotation": {
