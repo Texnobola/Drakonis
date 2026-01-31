@@ -51,13 +51,14 @@ public record PlayPlayerAnimationMessage(int player, String animation, boolean o
 							data.putBoolean("FirstPersonAnimation", false);
 							data.remove("PlayerCurrentAnimation");
 							data.remove("PlayerAnimationProgress");
-							DrakonisMod.LOGGER.info("[ANIM] Reset animation for player");
+
 						} else {
 							// Check if the current animation is one-shot (not looping)
 							// These animations should NOT be reset while playing
 							boolean isOneShotAnimation = currentAnim.contains("dragon_concentration") || 
 														currentAnim.contains("ember_dominion") ||
-														currentAnim.contains("dragon_strike");
+														currentAnim.contains("dragon_strike") ||
+														currentAnim.contains("snow_summon_caster");
 							
 							if (!isOneShotAnimation) {
 								// This is a looping animation like fire_blast_charge - safe to reset
@@ -65,9 +66,7 @@ public record PlayPlayerAnimationMessage(int player, String animation, boolean o
 								data.putBoolean("FirstPersonAnimation", false);
 								data.remove("PlayerCurrentAnimation");
 								data.remove("PlayerAnimationProgress");
-								DrakonisMod.LOGGER.info("[ANIM] Reset animation for player");
-							} else {
-								DrakonisMod.LOGGER.info("[ANIM] Skipping reset - one-shot animation currently playing: " + currentAnim);
+						} else {
 							}
 						}
 					} else {

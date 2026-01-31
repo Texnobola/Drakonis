@@ -104,6 +104,9 @@ public class DrakonisModVariables {
 		public long fireStoneMainHandCookStart = 0;
 		public long fireStoneOffHandCookStart = 0;
 		public boolean hasReceivedInstructionBook = false;
+		public boolean isSnowGolemSummoning = false;
+		public long snowGolemSummonStartTime = 0;
+		public long snowGolemSummonCooldown = 0;
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
@@ -134,6 +137,9 @@ public class DrakonisModVariables {
 			nbt.putLong("fireStoneMainHandCookStart", fireStoneMainHandCookStart);
 			nbt.putLong("fireStoneOffHandCookStart", fireStoneOffHandCookStart);
 			nbt.putBoolean("hasReceivedInstructionBook", hasReceivedInstructionBook);
+			nbt.putBoolean("isSnowGolemSummoning", isSnowGolemSummoning);
+			nbt.putLong("snowGolemSummonStartTime", snowGolemSummonStartTime);
+			nbt.putLong("snowGolemSummonCooldown", snowGolemSummonCooldown);
 			return nbt;
 		}
 
@@ -166,6 +172,9 @@ public class DrakonisModVariables {
 			fireStoneMainHandCookStart = nbt.getLong("fireStoneMainHandCookStart");
 			fireStoneOffHandCookStart = nbt.getLong("fireStoneOffHandCookStart");
 			hasReceivedInstructionBook = nbt.getBoolean("hasReceivedInstructionBook");
+			isSnowGolemSummoning = nbt.getBoolean("isSnowGolemSummoning");
+			snowGolemSummonStartTime = nbt.getLong("snowGolemSummonStartTime");
+			snowGolemSummonCooldown = nbt.getLong("snowGolemSummonCooldown");
 		}
 
 		public void syncPlayerVariables(net.minecraft.world.entity.player.Player player) {

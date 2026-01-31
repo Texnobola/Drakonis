@@ -23,5 +23,10 @@
   "tooltip.drakonis.immortality": "Immortality",
   "tooltip.drakonis.status.active": "Active",
   "tooltip.drakonis.status.inactive": "Inactive",
-  "tooltip.drakonis.fire_stone.passive": "Shift + Hold: Cook items in 20s"
+  "tooltip.drakonis.status.ready": "Ready",
+  "tooltip.drakonis.status.cooldown": "On Cooldown",
+  "tooltip.drakonis.fire_stone.passive": "Shift + Hold: Cook items in 20s",
+  "tooltip.drakonis.ice_stone.abilities": "Abilities Status",
+  "tooltip.drakonis.snow_golem_summon": "Snow Golem Summon (R)",
+  "tooltip.drakonis.ice_stone.passive": "Summons 3 sunproof snow golems"
 }

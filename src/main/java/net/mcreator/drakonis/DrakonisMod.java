@@ -127,6 +127,7 @@ public class DrakonisMod {
 			net.mcreator.drakonis.procedures.EmberDominionTickProcedure.execute(player);
 			net.mcreator.drakonis.procedures.DragonConcentrationTickProcedure.execute(player);
 			net.mcreator.drakonis.procedures.FireBlastChargingTickProcedure.execute(player);
+			net.mcreator.drakonis.procedures.MuztoshiPassiveTickProcedure.execute(player);
 		}
 		net.mcreator.drakonis.procedures.FireStoneCookingProcedure.onPlayerTick(event);
 	}
