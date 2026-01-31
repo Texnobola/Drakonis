@@ -4,7 +4,7 @@ Prism Launcher version: 9.4 (official)
 Launched instance in online mode
 
 login.microsoftonline.com resolves to:
-    [40.126.35.128, 40.126.35.80, 40.126.35.150, 20.190.163.20, 40.126.35.87, 40.126.35.86, 20.190.163.19, 40.126.35.18]
+    [40.126.35.144, 40.126.35.150, 40.126.35.84, 40.126.35.145, 40.126.35.128, 40.126.35.20, 20.190.163.20, 40.126.35.21]
 
 
 session.minecraft.net resolves to:
@@ -12,11 +12,11 @@ session.minecraft.net resolves to:
 
 
 textures.minecraft.net resolves to:
-    [13.107.226.44, 13.107.253.44]
+    [150.171.109.51]
 
 
 api.mojang.com resolves to:
-    [150.171.109.51]
+    [150.171.109.53]
 
 
 Minecraft folder is:
@@ -172,13 +172,13 @@ Java Arguments:
 [-XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump, -Xms512m, -Xmx4096m, -Duser.language=en]
 
 
-Minecraft process ID: 103344
+Minecraft process ID: 99116
 
 
 JVM info: Microsoft - 21.0.7 - 21.0.7+6-LTS
 java.net.preferIPv4Stack=true
-Current Time: 01/02/2026 00:55:55
-Created Temporary Directory: C:\Users\dev\AppData\Local\Temp\neoforge_installer8060567775204246508
+Current Time: 01/02/2026 01:17:55
+Created Temporary Directory: C:\Users\dev\AppData\Local\Temp\neoforge_installer8336636131650604405
   Extracting: /data/client.lzma
 Building Processors
 ===============================================================================
@@ -218,32 +218,32 @@ Processor: net.neoforged.installertools:binarypatcher
     C:\Users\dev\AppData\Roaming\PrismLauncher\libraries\net\minecraft\client\1.21.1-20240808.144430\client-1.21.1-20240808.144430-srg.jar Validated: a4827225b3c07662ca68b03ea20d11433a0c0488
     C:\Users\dev\AppData\Roaming\PrismLauncher\libraries\net\neoforged\neoforge\21.1.219\neoforge-21.1.219-client.jar Validated: c6ed41a2a01ea5bcd44a131f38f2058d37e8996a
   Cache Hit!
-[00:56:02.939] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher running: args [--username, VaviYT, --version, 1.21.1, --gameDir, C:/Users/dev/AppData/Roaming/PrismLauncher/instances/Drakonis olami/minecraft, --assetsDir, C:/Users/dev/AppData/Roaming/PrismLauncher/assets, --assetIndex, 17, --uuid, <PROFILE ID>, --accessToken, ❄❄❄❄❄❄❄❄, --userType, offline, --versionType, release, --fml.neoForgeVersion, 21.1.219, --fml.fmlVersion, 4.0.42, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, --launchTarget, forgeclient, --width, 854, --height, 480] 
-[00:56:02.949] [main/INFO] [Launcher/MODLAUNCHER]: JVM identified as Microsoft OpenJDK 64-Bit Server VM 21.0.7+6-LTS 
-[00:56:02.956] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.7 by Microsoft; OS Windows 11 arch amd64 version 10.0 
-[00:56:03.932] [main/INFO] [loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow 
-[00:56:04.401] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6 
-[00:56:06.475] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6 
-[00:56:06.728] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/dev/AppData/Roaming/PrismLauncher/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%23175!/ Service=ModLauncher Env=CLIENT 
-[00:56:07.329] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: Intel(R) UHD Graphics GL version 4.6.0 - Build 32.0.101.7076, Intel 
-[00:56:07.726] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "client-1.21.1-20240808.144430-srg.jar" [locator: production client provider +net.neoforged:neoforge:21.1.219:client] 
-[00:56:07.813] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.219-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[C:\Users\dev\AppData\Roaming\PrismLauncher\libraries\net\neoforged\neoforge\21.1.219\neoforge-21.1.219-universal.jar]], reader: mod manifest] 
-[00:56:07.866] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "curios-neoforge-9.5.1+1.21.1.jar" [locator: {mods folder locator at C:\Users\dev\AppData\Roaming\PrismLauncher\instances\Drakonis olami\minecraft\mods}, reader: mod manifest] 
-[00:56:07.894] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "entityculling-neoforge-1.9.5-mc1.21.1.jar" [locator: {mods folder locator at C:\Users\dev\AppData\Roaming\PrismLauncher\instances\Drakonis olami\minecraft\mods}, reader: mod manifest] 
-[00:56:07.961] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "ferritecore-7.0.3-neoforge.jar" [locator: {mods folder locator at C:\Users\dev\AppData\Roaming\PrismLauncher\instances\Drakonis olami\minecraft\mods}, reader: mod manifest] 
-[00:56:08.001] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "modid-1.0.jar" [locator: {mods folder locator at C:\Users\dev\AppData\Roaming\PrismLauncher\instances\Drakonis olami\minecraft\mods}, reader: mod manifest] 
-[00:56:08.030] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "sodium-neoforge-0.6.13+mc1.21.1.jar" [locator: {mods folder locator at C:\Users\dev\AppData\Roaming\PrismLauncher\instances\Drakonis olami\minecraft\mods}, reader: mod manifest] 
-[00:56:08.658] [main/INFO] [loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 9 dependencies adding them to mods collection 
-[00:56:08.659] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.0.jar" [parent: neoforge-21.1.219-universal.jar, locator: jarinjar, reader: mod manifest] 
-[00:56:08.659] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-rendering-data-attachment-v1-0.3.48+73761d2e19.jar" [parent: sodium-neoforge-0.6.13+mc1.21.1.jar, locator: jarinjar, reader: mod manifest] 
-[00:56:08.659] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-renderer-api-v1-3.4.0+9c40919e19.jar" [parent: sodium-neoforge-0.6.13+mc1.21.1.jar, locator: jarinjar, reader: mod manifest] 
-[00:56:08.663] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "TRender-1.0.10-1.21.1-neoforge-SNAPSHOT.jar" [parent: entityculling-neoforge-1.9.5-mc1.21.1.jar, locator: jarinjar, reader: mod manifest] 
-[00:56:08.664] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-api-base-0.4.42+d1308ded19.jar" [parent: sodium-neoforge-0.6.13+mc1.21.1.jar, locator: jarinjar, reader: mod manifest] 
-[00:56:08.666] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.caffeinemc.sodium-neoforge-0.6.13+mc1.21.1-service.jar" [parent: sodium-neoforge-0.6.13+mc1.21.1.jar, locator: jarinjar, reader: mod manifest] 
-[00:56:08.669] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.219.jar" [parent: neoforge-21.1.219-universal.jar, locator: jarinjar, reader: mod manifest] 
-[00:56:08.669] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "TRansition-1.0.11-1.21.1-neoforge-SNAPSHOT.jar" [parent: entityculling-neoforge-1.9.5-mc1.21.1.jar, locator: jarinjar, reader: mod manifest] 
-[00:56:08.669] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-block-view-api-v2-1.0.10+9afaaf8c19.jar" [parent: sodium-neoforge-0.6.13+mc1.21.1.jar, locator: jarinjar, reader: mod manifest] 
-[00:56:08.675] [main/INFO] [loading.moddiscovery.ModDiscoverer/]: 
+[01:18:00.933] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher running: args [--username, VaviYT, --version, 1.21.1, --gameDir, C:/Users/dev/AppData/Roaming/PrismLauncher/instances/Drakonis olami/minecraft, --assetsDir, C:/Users/dev/AppData/Roaming/PrismLauncher/assets, --assetIndex, 17, --uuid, <PROFILE ID>, --accessToken, ❄❄❄❄❄❄❄❄, --userType, offline, --versionType, release, --fml.neoForgeVersion, 21.1.219, --fml.fmlVersion, 4.0.42, --fml.mcVersion, 1.21.1, --fml.neoFormVersion, 20240808.144430, --launchTarget, forgeclient, --width, 854, --height, 480] 
+[01:18:00.950] [main/INFO] [Launcher/MODLAUNCHER]: JVM identified as Microsoft OpenJDK 64-Bit Server VM 21.0.7+6-LTS 
+[01:18:00.976] [main/INFO] [Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.7 by Microsoft; OS Windows 11 arch amd64 version 10.0 
+[01:18:01.666] [main/INFO] [loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow 
+[01:18:01.882] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6 
+[01:18:03.300] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6 
+[01:18:03.486] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/C:/Users/dev/AppData/Roaming/PrismLauncher/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%23175!/ Service=ModLauncher Env=CLIENT 
+[01:18:03.927] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: Intel(R) UHD Graphics GL version 4.6.0 - Build 32.0.101.7076, Intel 
+[01:18:04.128] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "client-1.21.1-20240808.144430-srg.jar" [locator: production client provider +net.neoforged:neoforge:21.1.219:client] 
+[01:18:04.419] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-21.1.219-universal.jar" [locator: PathBasedLocator[name=neoforge, paths=[C:\Users\dev\AppData\Roaming\PrismLauncher\libraries\net\neoforged\neoforge\21.1.219\neoforge-21.1.219-universal.jar]], reader: mod manifest] 
+[01:18:04.470] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "curios-neoforge-9.5.1+1.21.1.jar" [locator: {mods folder locator at C:\Users\dev\AppData\Roaming\PrismLauncher\instances\Drakonis olami\minecraft\mods}, reader: mod manifest] 
+[01:18:04.487] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "entityculling-neoforge-1.9.5-mc1.21.1.jar" [locator: {mods folder locator at C:\Users\dev\AppData\Roaming\PrismLauncher\instances\Drakonis olami\minecraft\mods}, reader: mod manifest] 
+[01:18:04.524] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "ferritecore-7.0.3-neoforge.jar" [locator: {mods folder locator at C:\Users\dev\AppData\Roaming\PrismLauncher\instances\Drakonis olami\minecraft\mods}, reader: mod manifest] 
+[01:18:04.544] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "modid-1.0.jar" [locator: {mods folder locator at C:\Users\dev\AppData\Roaming\PrismLauncher\instances\Drakonis olami\minecraft\mods}, reader: mod manifest] 
+[01:18:04.590] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "sodium-neoforge-0.6.13+mc1.21.1.jar" [locator: {mods folder locator at C:\Users\dev\AppData\Roaming\PrismLauncher\instances\Drakonis olami\minecraft\mods}, reader: mod manifest] 
+[01:18:05.061] [main/INFO] [loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 9 dependencies adding them to mods collection 
+[01:18:05.062] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found gamelibrary file "mixinextras-neoforge-0.5.0.jar" [parent: neoforge-21.1.219-universal.jar, locator: jarinjar, reader: mod manifest] 
+[01:18:05.062] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-rendering-data-attachment-v1-0.3.48+73761d2e19.jar" [parent: sodium-neoforge-0.6.13+mc1.21.1.jar, locator: jarinjar, reader: mod manifest] 
+[01:18:05.063] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-renderer-api-v1-3.4.0+9c40919e19.jar" [parent: sodium-neoforge-0.6.13+mc1.21.1.jar, locator: jarinjar, reader: mod manifest] 
+[01:18:05.063] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "TRender-1.0.10-1.21.1-neoforge-SNAPSHOT.jar" [parent: entityculling-neoforge-1.9.5-mc1.21.1.jar, locator: jarinjar, reader: mod manifest] 
+[01:18:05.064] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-api-base-0.4.42+d1308ded19.jar" [parent: sodium-neoforge-0.6.13+mc1.21.1.jar, locator: jarinjar, reader: mod manifest] 
+[01:18:05.066] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.caffeinemc.sodium-neoforge-0.6.13+mc1.21.1-service.jar" [parent: sodium-neoforge-0.6.13+mc1.21.1.jar, locator: jarinjar, reader: mod manifest] 
+[01:18:05.066] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found library file "net.neoforged.neoforge-coremods-21.1.219.jar" [parent: neoforge-21.1.219-universal.jar, locator: jarinjar, reader: mod manifest] 
+[01:18:05.066] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "TRansition-1.0.11-1.21.1-neoforge-SNAPSHOT.jar" [parent: entityculling-neoforge-1.9.5-mc1.21.1.jar, locator: jarinjar, reader: mod manifest] 
+[01:18:05.067] [main/INFO] [loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "fabric-block-view-api-v2-1.0.10+9afaaf8c19.jar" [parent: sodium-neoforge-0.6.13+mc1.21.1.jar, locator: jarinjar, reader: mod manifest] 
+[01:18:05.071] [main/INFO] [loading.moddiscovery.ModDiscoverer/]: 
      Mod List:
 		Name Version (Mod Id)
 
@@ -260,39 +260,56 @@ Processor: net.neoforged.installertools:binarypatcher
 		Sodium 0.6.13+mc1.21.1 (sodium)
 		TRansition 1.0.11 (transition)
 		TRender 1.0.10 (trender) 
-[00:56:10.679] [main/INFO] [mixin/]: Compatibility level set to JAVA_21 
-[00:56:10.900] [main/INFO] [LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclient' with arguments [--version, 1.21.1, --gameDir, C:\Users\dev\AppData\Roaming\PrismLauncher\instances\Drakonis olami\minecraft, --assetsDir, C:\Users\dev\AppData\Roaming\PrismLauncher\assets, --uuid, <PROFILE ID>, --username, VaviYT, --assetIndex, 17, --accessToken, ❄❄❄❄❄❄❄❄, --userType, offline, --versionType, release, --width, 854, --height, 480] 
-[00:56:11.180] [main/WARN] [mixin/]: Reference map 'entityculling.refmap.mixins.json' for entityculling.mixins.json could not be read. If this is a development environment you can ignore this message 
-[00:56:11.243] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.predicates.mixin.json could not be read. If this is a development environment you can ignore this message 
-[00:56:11.246] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.fastmap.mixin.json could not be read. If this is a development environment you can ignore this message 
-[00:56:11.249] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.mrl.mixin.json could not be read. If this is a development environment you can ignore this message 
-[00:56:11.252] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.dedupmultipart.mixin.json could not be read. If this is a development environment you can ignore this message 
-[00:56:11.253] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.blockstatecache.mixin.json could not be read. If this is a development environment you can ignore this message 
-[00:56:11.256] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.dedupbakedquad.mixin.json could not be read. If this is a development environment you can ignore this message 
-[00:56:11.258] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.threaddetec.mixin.json could not be read. If this is a development environment you can ignore this message 
-[00:56:11.261] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.modelsides.mixin.json could not be read. If this is a development environment you can ignore this message 
-[00:56:11.264] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.datacomponents.mixin.json could not be read. If this is a development environment you can ignore this message 
-[00:56:11.267] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.accessors.mixin.json could not be read. If this is a development environment you can ignore this message 
-[00:56:11.296] [main/INFO] [Sodium/]: Loaded configuration file for Sodium: 43 options available, 0 override(s) found 
-[00:56:11.302] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message 
-[00:56:11.303] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message 
-[00:56:12.701] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.0). 
+[01:18:07.503] [main/INFO] [mixin/]: Compatibility level set to JAVA_21 
+[01:18:07.809] [main/INFO] [LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclient' with arguments [--version, 1.21.1, --gameDir, C:\Users\dev\AppData\Roaming\PrismLauncher\instances\Drakonis olami\minecraft, --assetsDir, C:\Users\dev\AppData\Roaming\PrismLauncher\assets, --uuid, <PROFILE ID>, --username, VaviYT, --assetIndex, 17, --accessToken, ❄❄❄❄❄❄❄❄, --userType, offline, --versionType, release, --width, 854, --height, 480] 
+[01:18:08.101] [main/WARN] [mixin/]: Reference map 'entityculling.refmap.mixins.json' for entityculling.mixins.json could not be read. If this is a development environment you can ignore this message 
+[01:18:08.197] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.predicates.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:18:08.211] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.fastmap.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:18:08.215] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.mrl.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:18:08.218] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.dedupmultipart.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:18:08.221] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.blockstatecache.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:18:08.222] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.dedupbakedquad.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:18:08.224] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.threaddetec.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:18:08.228] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.modelsides.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:18:08.231] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.datacomponents.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:18:08.232] [main/WARN] [mixin/]: Reference map '${refmap_target}refmap.json' for ferritecore.accessors.mixin.json could not be read. If this is a development environment you can ignore this message 
+[01:18:08.282] [main/INFO] [Sodium/]: Loaded configuration file for Sodium: 43 options available, 0 override(s) found 
+[01:18:08.308] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.neoforge.mixins.json could not be read. If this is a development environment you can ignore this message 
+[01:18:08.313] [main/WARN] [mixin/]: Reference map 'curios.refmap.json' for curios.mixins.json could not be read. If this is a development environment you can ignore this message 
+[01:18:11.514] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.0). 
 WARN StatusConsoleListener Advanced terminal features are not available in this environment
-[00:56:22] [Datafixer Bootstrap/INFO] [mojang/DataFixerBuilder]: 229 Datafixer optimizations took 926 milliseconds
-[00:56:39] [main/WARN] [minecraft/Main]: Unrecognized user type: offline
-[00:56:41] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/dev/AppData/Roaming/PrismLauncher/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar%23193!/assets/.mcassetsroot' uses unexpected schema
-[00:56:42] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/dev/AppData/Roaming/PrismLauncher/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar%23193!/data/.mcassetsroot' uses unexpected schema
-[00:56:42] [Render thread/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[00:56:42] [Render thread/INFO] [minecraft/Minecraft]: Setting user: VaviYT
-[00:56:42] [Render thread/INFO] [minecraft/Minecraft]: Backend library: LWJGL version 3.3.3+5
-[00:56:43] [Render thread/INFO] [mojang/Window]: OpenGL Vendor: Intel
-[00:56:43] [Render thread/INFO] [mojang/Window]: OpenGL Renderer: Intel(R) UHD Graphics
-[00:56:43] [Render thread/INFO] [mojang/Window]: OpenGL Version: 4.6.0 - Build 32.0.101.7076
+[01:18:17] [Datafixer Bootstrap/INFO] [mojang/DataFixerBuilder]: 229 Datafixer optimizations took 1508 milliseconds
+[01:18:25] [main/WARN] [minecraft/Main]: Unrecognized user type: offline
+[01:18:25] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/dev/AppData/Roaming/PrismLauncher/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar%23193!/assets/.mcassetsroot' uses unexpected schema
+[01:18:25] [Render thread/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/C:/Users/dev/AppData/Roaming/PrismLauncher/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar%23193!/data/.mcassetsroot' uses unexpected schema
+[01:18:25] [Render thread/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[01:18:25] [Render thread/INFO] [minecraft/Minecraft]: Setting user: VaviYT
+[01:18:25] [Render thread/INFO] [minecraft/Minecraft]: Backend library: LWJGL version 3.3.3+5
+[01:18:26] [Render thread/INFO] [mojang/Window]: OpenGL Vendor: Intel
+[01:18:26] [Render thread/INFO] [mojang/Window]: OpenGL Renderer: Intel(R) UHD Graphics
+[01:18:26] [Render thread/INFO] [mojang/Window]: OpenGL Version: 4.6.0 - Build 32.0.101.7076
 [LibGui] Initializing Client...
-[00:56:44] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.219, for MC 1.21.1
-[00:56:48] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/sodium, mod/entityculling, mod/fabric_renderer_api_v1, mod/fabric_api_base, mod/ferritecore, mod/transition, mod/fabric_rendering_data_attachment_v1, mod/trender, mod/curios, mod/neoforge, mod/drakonis, mod/fabric_block_view_api_v2
-[00:56:49] [Worker-Main-3/INFO] [minecraft/UnihexProvider]: Found unifont_all_no_pua-15.1.05.hex, loading
-[00:56:50] [Worker-Main-2/INFO] [minecraft/UnihexProvider]: Found unifont_jp_patch-15.1.05.hex, loading
+[01:18:27] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.219, for MC 1.21.1
+[01:18:29] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/sodium, mod/entityculling, mod/fabric_renderer_api_v1, mod/fabric_api_base, mod/ferritecore, mod/transition, mod/fabric_rendering_data_attachment_v1, mod/trender, mod/curios, mod/neoforge, mod/drakonis, mod/fabric_block_view_api_v2
+[01:18:29] [Worker-Main-9/INFO] [minecraft/UnihexProvider]: Found unifont_all_no_pua-15.1.05.hex, loading
+[01:18:29] [Worker-Main-2/INFO] [minecraft/UnihexProvider]: Found unifont_jp_patch-15.1.05.hex, loading
+[01:18:30] [Worker-Main-7/ERROR] [minecraft/SpriteResourceLoader]: Using missing texture, unable to load curios:slot/hands
+java.io.IOException: Bad PNG Signature
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.util.PngInfo.validateHeader(PngInfo.java:44) ~[client-1.21.1-20240808.144430-srg.jar%23193!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/com.mojang.blaze3d.platform.NativeImage.read(NativeImage.java:139) ~[client-1.21.1-20240808.144430-srg.jar%23193!/:?] {re:mixin,re:classloading,pl:mixin:APP:sodium-common.mixins.json:features.textures.NativeImageAccessor from mod sodium,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/com.mojang.blaze3d.platform.NativeImage.read(NativeImage.java:111) ~[client-1.21.1-20240808.144430-srg.jar%23193!/:?] {re:mixin,re:classloading,pl:mixin:APP:sodium-common.mixins.json:features.textures.NativeImageAccessor from mod sodium,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/com.mojang.blaze3d.platform.NativeImage.read(NativeImage.java:102) ~[client-1.21.1-20240808.144430-srg.jar%23193!/:?] {re:mixin,re:classloading,pl:mixin:APP:sodium-common.mixins.json:features.textures.NativeImageAccessor from mod sodium,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.texture.atlas.SpriteResourceLoader.lambda$create$0(SpriteResourceLoader.java:38) ~[client-1.21.1-20240808.144430-srg.jar%23193!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.texture.atlas.SpriteResourceLoader.loadSprite(SpriteResourceLoader.java:66) ~[client-1.21.1-20240808.144430-srg.jar%23193!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.texture.atlas.SpriteSource$Output.lambda$add$0(SpriteSource.java:21) ~[client-1.21.1-20240808.144430-srg.jar%23193!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.texture.SpriteLoader.lambda$runSpriteSuppliers$3(SpriteLoader.java:118) ~[client-1.21.1-20240808.144430-srg.jar%23193!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768) [?:?] {}
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760) [?:?] {}
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387) [?:?] {}
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312) [?:?] {}
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843) [?:?] {}
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808) [?:?] {}
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188) [?:?] {}
 [Drakonis] Starting animation loading...
 [Drakonis] Checking mod: minecraft
 [Drakonis] Checking path: data/minecraft/bedrock_animations
@@ -337,87 +354,86 @@ WARN StatusConsoleListener Advanced terminal features are not available in this 
 [Drakonis] Registering animation: drakonis:dance
 [Drakonis] Registering animation: drakonis:dragon_concentration
 [Drakonis] Total animations loaded: 7
-[00:56:50] [Worker-Main-4/ERROR] [minecraft/SpriteResourceLoader]: Using missing texture, unable to load curios:slot/hands
-java.io.IOException: Bad PNG Signature
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.util.PngInfo.validateHeader(PngInfo.java:44) ~[client-1.21.1-20240808.144430-srg.jar%23193!/:?] {re:classloading}
-	at TRANSFORMER/minecraft@1.21.1/com.mojang.blaze3d.platform.NativeImage.read(NativeImage.java:139) ~[client-1.21.1-20240808.144430-srg.jar%23193!/:?] {re:mixin,re:classloading,pl:mixin:APP:sodium-common.mixins.json:features.textures.NativeImageAccessor from mod sodium,pl:mixin:A}
-	at TRANSFORMER/minecraft@1.21.1/com.mojang.blaze3d.platform.NativeImage.read(NativeImage.java:111) ~[client-1.21.1-20240808.144430-srg.jar%23193!/:?] {re:mixin,re:classloading,pl:mixin:APP:sodium-common.mixins.json:features.textures.NativeImageAccessor from mod sodium,pl:mixin:A}
-	at TRANSFORMER/minecraft@1.21.1/com.mojang.blaze3d.platform.NativeImage.read(NativeImage.java:102) ~[client-1.21.1-20240808.144430-srg.jar%23193!/:?] {re:mixin,re:classloading,pl:mixin:APP:sodium-common.mixins.json:features.textures.NativeImageAccessor from mod sodium,pl:mixin:A}
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.texture.atlas.SpriteResourceLoader.lambda$create$0(SpriteResourceLoader.java:38) ~[client-1.21.1-20240808.144430-srg.jar%23193!/:?] {re:classloading,pl:runtimedistcleaner:A}
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.texture.atlas.SpriteResourceLoader.loadSprite(SpriteResourceLoader.java:66) ~[client-1.21.1-20240808.144430-srg.jar%23193!/:?] {re:classloading,pl:runtimedistcleaner:A}
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.texture.atlas.SpriteSource$Output.lambda$add$0(SpriteSource.java:21) ~[client-1.21.1-20240808.144430-srg.jar%23193!/:?] {re:classloading}
-	at TRANSFORMER/minecraft@1.21.1/net.minecraft.client.renderer.texture.SpriteLoader.lambda$runSpriteSuppliers$3(SpriteLoader.java:118) ~[client-1.21.1-20240808.144430-srg.jar%23193!/:?] {re:classloading,pl:runtimedistcleaner:A}
-	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768) [?:?] {}
-	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760) [?:?] {}
+[01:18:31] [Worker-Main-7/WARN] [minecraft/SpriteLoader]: Texture drakonis:item/earth with size 500x500 limits mip level from 4 to 2
+[01:18:32] [Worker-Main-3/WARN] [minecraft/ModelBakery]: Unable to load model: 'drakonis:item/instruction_book' referenced from: drakonis:item/instruction_book: java.io.FileNotFoundException: drakonis:models/item/instruction_book.json
+[01:18:33] [Worker-Main-6/WARN] [ne.mc.dr.DrakonisMod/]: Failed to register hands slot via reflection
+java.lang.NoSuchMethodException: top.theillusivec4.curios.api.CuriosApi.registerSlot(java.lang.String)
+	at java.base/java.lang.Class.getDeclaredMethod(Class.java:2848) ~[?:?] {re:mixin}
+	at TRANSFORMER/drakonis@1.0.0/net.mcreator.drakonis.init.DrakonisModCuriosCompat.onLoadComplete(DrakonisModCuriosCompat.java:41) ~[modid-1.0.jar%23198!/:?] {re:classloading}
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:360) ~[bus-8.0.5.jar%23164!/:?] {}
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:328) ~[bus-8.0.5.jar%23164!/:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.42/net.neoforged.fml.ModContainer.acceptEvent(ModContainer.java:158) ~[loader-4.0.42.jar%23161!/:4.0] {re:mixin}
+	at MC-BOOTSTRAP/fml_loader@4.0.42/net.neoforged.fml.ModLoader.lambda$dispatchParallelEvent$4(ModLoader.java:172) ~[loader-4.0.42.jar%23161!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.42/net.neoforged.fml.ModLoader.lambda$dispatchParallelTask$7(ModLoader.java:231) ~[loader-4.0.42.jar%23161!/:4.0] {}
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) [?:?] {}
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) [?:?] {}
+	at java.base/java.util.concurrent.CompletableFuture$Completion.exec(CompletableFuture.java:483) [?:?] {}
 	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387) [?:?] {}
 	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312) [?:?] {}
 	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843) [?:?] {}
 	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808) [?:?] {}
 	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188) [?:?] {}
-[00:56:51] [Worker-Main-7/WARN] [minecraft/SpriteLoader]: Texture drakonis:item/earth with size 500x500 limits mip level from 4 to 2
-[00:56:53] [Worker-Main-10/WARN] [minecraft/ModelBakery]: Unable to load model: 'drakonis:item/instruction_book' referenced from: drakonis:item/instruction_book: java.io.FileNotFoundException: drakonis:models/item/instruction_book.json
-[00:56:56] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:item.goat_horn.play
-[00:56:56] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
-[00:56:56] [Render thread/INFO] [mojang/Library]: OpenAL initialized on device OpenAL Soft on Speakers (Realtek(R) Audio)
-[00:56:56] [Render thread/INFO] [minecraft/SoundEngine]: Sound engine started
-[00:56:56] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 4096x2048x4 minecraft:textures/atlas/blocks.png-atlas
-[00:56:56] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
-[00:56:56] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[00:56:56] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[00:56:56] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
-[00:56:56] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
-[00:56:56] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[00:56:56] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[00:56:56] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[00:56:57] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
-[00:56:57] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
-[00:56:57] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[00:56:57] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
-[00:56:57] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
-[00:56:57] [Render thread/WARN] [minecraft/ShaderInstance]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
-[00:56:57] [Render thread/INFO] [ne.ne.ne.cl.en.an.js.AnimationLoader/]: Loaded 0 entity animations
-[00:57:31] [Render thread/INFO] [minecraft/RecipeManager]: Loaded 1291 recipes
-[00:57:31] [Render thread/INFO] [minecraft/AdvancementTree]: Loaded 1400 advancements
-[00:57:31] [Render thread/INFO] [Curios API/]: Loaded 10 curio slots
-[00:57:31] [Render thread/INFO] [Curios API/]: Loaded 1 curio entities
-[00:57:32] [Server thread/INFO] [minecraft/IntegratedServer]: Starting integrated minecraft server version 1.21.1
-[00:57:32] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
-[00:57:33] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
-[00:57:34] [Render thread/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
-[00:57:34] [Render thread/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
-[00:57:34] [Render thread/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
-[00:57:35] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
-[00:57:35] [Render thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 1286 ms
-[00:57:35] [Server thread/INFO] [minecraft/IntegratedServer]: Changing view distance to 6, from 10
-[00:57:35] [Server thread/INFO] [minecraft/IntegratedServer]: Changing simulation distance to 6, from 0
-[00:57:37] [Server thread/INFO] [minecraft/PlayerList]: VaviYT[local:E:6f3cd52c] logged in with entity id 11 at (-22.2271808367212, -60.0, 17.55625607250934)
-[00:57:37] [Server thread/INFO] [minecraft/MinecraftServer]: VaviYT joined the game
-[00:57:38] [Render thread/INFO] [ChunkBuilder/]: Started 6 worker threads
-[00:57:38] [Render thread/INFO] [minecraft/AdvancementTree]: Loaded 40 advancements
-[00:57:38] [Render thread/WARN] [minecraft/SoundEngine]: Unable to play empty soundEvent: minecraft:entity.snow_golem.ambient
-[00:57:39] [Server thread/INFO] [minecraft/IntegratedServer]: Saving and pausing game...
-[00:57:39] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[00:57:39] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[00:57:39] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[00:58:01] [Server thread/INFO] [minecraft/IntegratedServer]: Saving and pausing game...
-[00:58:01] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[00:58:01] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[00:58:01] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[00:58:01] [Server thread/INFO] [minecraft/ServerGamePacketListenerImpl]: VaviYT lost connection: Disconnected
-[00:58:01] [Server thread/INFO] [minecraft/MinecraftServer]: VaviYT left the game
-[00:58:01] [Server thread/INFO] [minecraft/ServerCommonPacketListenerImpl]: Stopping singleplayer server as player logged out
-[00:58:02] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
-[00:58:02] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
-[00:58:02] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
-[00:58:02] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[00:58:02] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[00:58:02] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[00:58:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (New World (27)): All chunks are saved
-[00:58:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[00:58:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[00:58:02] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
-[00:58:02] [Render thread/INFO] [ChunkBuilder/]: Stopping worker threads
+[01:18:33] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:item.goat_horn.play
+[01:18:33] [Render thread/WARN] [minecraft/SoundEngine]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[01:18:34] [Render thread/INFO] [mojang/Library]: OpenAL initialized on device OpenAL Soft on Speakers (Realtek(R) Audio)
+[01:18:34] [Render thread/INFO] [minecraft/SoundEngine]: Sound engine started
+[01:18:35] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 4096x2048x4 minecraft:textures/atlas/blocks.png-atlas
+[01:18:35] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[01:18:35] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[01:18:35] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[01:18:35] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[01:18:35] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[01:18:35] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[01:18:35] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[01:18:35] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[01:18:35] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[01:18:35] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[01:18:35] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[01:18:35] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[01:18:35] [Render thread/INFO] [minecraft/TextureAtlas]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[01:18:35] [Render thread/WARN] [minecraft/ShaderInstance]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[01:18:36] [Render thread/INFO] [ne.ne.ne.cl.en.an.js.AnimationLoader/]: Loaded 0 entity animations
+[01:18:42] [Render thread/INFO] [minecraft/RecipeManager]: Loaded 1291 recipes
+[01:18:42] [Render thread/INFO] [minecraft/AdvancementTree]: Loaded 1400 advancements
+[01:18:42] [Render thread/INFO] [Curios API/]: Loaded 10 curio slots
+[01:18:42] [Render thread/INFO] [Curios API/]: Loaded 1 curio entities
+[01:18:45] [Server thread/INFO] [minecraft/IntegratedServer]: Starting integrated minecraft server version 1.21.1
+[01:18:45] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[01:18:46] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[01:18:46] [Render thread/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[01:18:46] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[01:18:46] [Render thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 410 ms
+[01:18:46] [Server thread/INFO] [minecraft/IntegratedServer]: Changing view distance to 6, from 10
+[01:18:46] [Server thread/INFO] [minecraft/IntegratedServer]: Changing simulation distance to 6, from 0
+[01:18:48] [Server thread/INFO] [minecraft/PlayerList]: VaviYT[local:E:7958576c] logged in with entity id 1 at (-3.5, -60.0, 10.5)
+[01:18:49] [Server thread/INFO] [minecraft/MinecraftServer]: VaviYT joined the game
+[01:18:49] [Render thread/INFO] [ChunkBuilder/]: Started 6 worker threads
+[01:18:49] [Render thread/INFO] [minecraft/AdvancementTree]: Loaded 2 advancements
+[01:18:50] [Server thread/INFO] [minecraft/IntegratedServer]: Saving and pausing game...
+[01:18:50] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[01:18:50] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[01:18:50] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[01:19:01] [Server thread/INFO] [minecraft/MinecraftServer]: [VaviYT: Gave 1 [Icy Gloves] to VaviYT]
+[01:19:01] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Gave 1 [Icy Gloves] to VaviYT
+[01:19:11] [Server thread/INFO] [minecraft/IntegratedServer]: Saving and pausing game...
+[01:19:11] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[01:19:11] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[01:19:11] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[01:20:53] [Server thread/INFO] [minecraft/ServerGamePacketListenerImpl]: VaviYT lost connection: Disconnected
+[01:20:53] [Server thread/INFO] [minecraft/MinecraftServer]: VaviYT left the game
+[01:20:53] [Server thread/INFO] [minecraft/ServerCommonPacketListenerImpl]: Stopping singleplayer server as player logged out
+[01:20:53] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[01:20:53] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[01:20:53] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[01:20:58] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[01:20:58] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[01:20:58] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[01:20:58] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (New World (28)): All chunks are saved
+[01:20:58] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[01:20:58] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[01:20:58] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[01:20:58] [Render thread/INFO] [ChunkBuilder/]: Stopping worker threads
 Shutting down culling task!
-[00:58:02] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+[01:20:59] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
 Process exited with code 0.
-Clipboard copy at: 01 Feb 2026 00:58:24 +0500
+Clipboard copy at: 01 Feb 2026 01:21:27 +0500
