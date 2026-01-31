@@ -26,6 +26,6 @@ public class DrakonisModCuriosCompat {
 			public boolean makesPiglinsNeutral(SlotContext slotContext) {
 				return true;
 			}
-		}, DrakonisModItems.OLOVTOSHI.get());
+		}, DrakonisModItems.OLOVTOSHI.get(), DrakonisModItems.ICY_GLOVES.get());
 	}
 }

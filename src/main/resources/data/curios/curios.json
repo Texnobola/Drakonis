@@ -1,0 +1,10 @@
+{
+  "slots": [
+    {
+      "name": "hands",
+      "icon": "minecraft:item/diamond_boots",
+      "size": 1,
+      "operation": "REPLACE"
+    }
+  ]
+}
