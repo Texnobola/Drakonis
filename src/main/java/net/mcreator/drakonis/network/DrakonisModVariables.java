@@ -103,6 +103,7 @@ public class DrakonisModVariables {
 		public boolean hasSelectedLanguage = false;
 		public long fireStoneMainHandCookStart = 0;
 		public long fireStoneOffHandCookStart = 0;
+		public boolean hasReceivedInstructionBook = false;
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
@@ -132,6 +133,7 @@ public class DrakonisModVariables {
 			nbt.putBoolean("hasSelectedLanguage", hasSelectedLanguage);
 			nbt.putLong("fireStoneMainHandCookStart", fireStoneMainHandCookStart);
 			nbt.putLong("fireStoneOffHandCookStart", fireStoneOffHandCookStart);
+			nbt.putBoolean("hasReceivedInstructionBook", hasReceivedInstructionBook);
 			return nbt;
 		}
 
@@ -163,6 +165,7 @@ public class DrakonisModVariables {
 			hasSelectedLanguage = nbt.getBoolean("hasSelectedLanguage");
 			fireStoneMainHandCookStart = nbt.getLong("fireStoneMainHandCookStart");
 			fireStoneOffHandCookStart = nbt.getLong("fireStoneOffHandCookStart");
+			hasReceivedInstructionBook = nbt.getBoolean("hasReceivedInstructionBook");
 		}
 
 		public void syncPlayerVariables(net.minecraft.world.entity.player.Player player) {
