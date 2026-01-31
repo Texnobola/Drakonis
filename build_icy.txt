@@ -1,0 +1,78 @@
+Picked up JAVA_TOOL_OPTIONS: -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
+Reusing configuration cache.
+> Task :jarJar NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :processResources UP-TO-DATE
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+C:\Users\dev\MCreatorWorkspaces\drakonis\src\main\java\net\mcreator\drakonis\item\IcyGlovesItem.java:10: error: package net.neoforged.neoforge.extensions.modcompat.curios does not exist
+import net.neoforged.neoforge.extensions.modcompat.curios.SlotContext;
+                                                         ^
+C:\Users\dev\MCreatorWorkspaces\drakonis\src\main\java\net\mcreator\drakonis\item\IcyGlovesItem.java:13: error: cannot find symbol
+import top.theillusivec4.curios.api.type.ICurioItem;
+                                        ^
+  symbol:   class ICurioItem
+  location: package top.theillusivec4.curios.api.type
+C:\Users\dev\MCreatorWorkspaces\drakonis\src\main\java\net\mcreator\drakonis\item\IcyGlovesItem.java:15: error: cannot find symbol
+public class IcyGlovesItem extends Item implements ICurioItem {
+                                                   ^
+  symbol: class ICurioItem
+C:\Users\dev\MCreatorWorkspaces\drakonis\src\main\java\net\mcreator\drakonis\item\IcyGlovesItem.java:18: error: cannot find symbol
+			.setId(ResourceLocation.fromNamespaceAndPath("drakonis", "icy_gloves")));
+			^
+  symbol:   method setId(ResourceLocation)
+  location: class Properties
+C:\Users\dev\MCreatorWorkspaces\drakonis\src\main\java\net\mcreator\drakonis\item\IcyGlovesItem.java:29: error: method does not override or implement a method from a supertype
+	@Override
+	^
+C:\Users\dev\MCreatorWorkspaces\drakonis\src\main\java\net\mcreator\drakonis\item\IcyGlovesItem.java:36: error: method does not override or implement a method from a supertype
+	@Override
+	^
+Note: C:\Users\dev\MCreatorWorkspaces\drakonis\src\main\java\net\mcreator\drakonis\procedures\EmberDominionTickProcedure.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+6 errors
+
+> Task :compileJava FAILED
+
+[Incubating] Problems report is available at: file:///C:/Users/dev/MCreatorWorkspaces/drakonis/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler output below.
+  Note: C:\Users\dev\MCreatorWorkspaces\drakonis\src\main\java\net\mcreator\drakonis\procedures\EmberDominionTickProcedure.java uses or overrides a deprecated API.
+  Note: Recompile with -Xlint:deprecation for details.
+  C:\Users\dev\MCreatorWorkspaces\drakonis\src\main\java\net\mcreator\drakonis\item\IcyGlovesItem.java:13: error: cannot find symbol
+  import top.theillusivec4.curios.api.type.ICurioItem;
+                                          ^
+    symbol:   class ICurioItem
+    location: package top.theillusivec4.curios.api.type
+  C:\Users\dev\MCreatorWorkspaces\drakonis\src\main\java\net\mcreator\drakonis\item\IcyGlovesItem.java:29: error: method does not override or implement a method from a supertype
+  	@Override
+  	^
+  C:\Users\dev\MCreatorWorkspaces\drakonis\src\main\java\net\mcreator\drakonis\item\IcyGlovesItem.java:36: error: method does not override or implement a method from a supertype
+  	@Override
+  	^
+  C:\Users\dev\MCreatorWorkspaces\drakonis\src\main\java\net\mcreator\drakonis\item\IcyGlovesItem.java:15: error: cannot find symbol
+  public class IcyGlovesItem extends Item implements ICurioItem {
+                                                     ^
+    symbol: class ICurioItem
+  C:\Users\dev\MCreatorWorkspaces\drakonis\src\main\java\net\mcreator\drakonis\item\IcyGlovesItem.java:18: error: cannot find symbol
+  			.setId(ResourceLocation.fromNamespaceAndPath("drakonis", "icy_gloves")));
+  			^
+    symbol:   method setId(ResourceLocation)
+    location: class Properties
+  C:\Users\dev\MCreatorWorkspaces\drakonis\src\main\java\net\mcreator\drakonis\item\IcyGlovesItem.java:10: error: package net.neoforged.neoforge.extensions.modcompat.curios does not exist
+  import net.neoforged.neoforge.extensions.modcompat.curios.SlotContext;
+                                                           ^
+  6 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to generate a Build Scan (Powered by Develocity).
+
+BUILD FAILED in 4s
+3 actionable tasks: 1 executed, 2 up-to-date
+Configuration cache entry reused.

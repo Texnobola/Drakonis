@@ -132,6 +132,20 @@ public class DrakonisMod {
 		net.mcreator.drakonis.procedures.FireStoneCookingProcedure.onPlayerTick(event);
 	}
 
+	@SubscribeEvent
+	public void onProjectileHit(net.neoforged.neoforge.event.entity.ProjectileImpactEvent event) {
+		if (event.getProjectile() instanceof net.minecraft.world.entity.projectile.Snowball snowball) {
+			if (snowball.getOwner() instanceof net.minecraft.world.entity.animal.SnowGolem) {
+				if (event.getRayTraceResult() instanceof net.minecraft.world.phys.EntityHitResult entityHit) {
+					if (entityHit.getEntity() instanceof net.minecraft.world.entity.LivingEntity target) {
+						target.addEffect(new net.minecraft.world.effect.MobEffectInstance(
+							net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 60, 1, false, false));
+					}
+				}
+			}
+		}
+	}
+
 	public static class CuriosApiHelper {
 		private static final EntityCapability<IItemHandler, Void> CURIOS_INVENTORY = EntityCapability.createVoid(ResourceLocation.fromNamespaceAndPath("curios", "item_handler"), IItemHandler.class);
 

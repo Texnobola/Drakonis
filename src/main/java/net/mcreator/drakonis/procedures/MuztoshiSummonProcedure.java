@@ -8,7 +8,7 @@ import net.mcreator.drakonis.network.DrakonisModVariables;
 import net.mcreator.drakonis.DrakonisMod;
 
 public class MuztoshiSummonProcedure {
-    private static final long SUMMON_COOLDOWN = 1200;
+    private static final long SUMMON_COOLDOWN = 200;
     
     public static void execute(Entity entity) {
         if (entity == null || !(entity instanceof Player player)) return;

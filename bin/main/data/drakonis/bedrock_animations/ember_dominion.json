@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"ember_dominium_fixed": {
+		"ember_dominion": {
 			"animation_length": 9.5,
 			"bones": {
 				"torso": {

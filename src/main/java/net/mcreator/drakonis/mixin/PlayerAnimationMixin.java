@@ -74,7 +74,6 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 		String playingAnimation = data.getString("PlayerCurrentAnimation");
 		boolean overrideAnimation = data.getBoolean("OverrideCurrentAnimation");
 		boolean firstPerson = data.getBoolean("FirstPersonAnimation") && mc.options.getCameraType().isFirstPerson() && player == mc.player && mc.screen == null;
-		DrakonisMod.LOGGER.info("[ANIM] setupAnim tail: playingAnimation='" + playingAnimation + "' override=" + overrideAnimation);
 		if (data.getBoolean("ResetPlayerAnimation")) {
 			data.remove("ResetPlayerAnimation");
 			data.remove("LastAnimationProgress");
@@ -100,6 +99,7 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 		}
 		DrakonisModPlayerAnimationAPI.PlayerAnimation animation = DrakonisModPlayerAnimationAPI.active_animations.get(player);
 		if (animation == null) {
+			DrakonisMod.LOGGER.info("[ANIM] Looking up animation: " + playingAnimation + " from " + DrakonisModPlayerAnimationAPI.animations.size() + " loaded animations");
 			animation = DrakonisModPlayerAnimationAPI.animations.get(playingAnimation);
 			if (animation == null) {
 				DrakonisMod.LOGGER.error("[ANIM] Animation not found: " + playingAnimation);
@@ -108,6 +108,8 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 			}
 			DrakonisMod.LOGGER.info("[ANIM] Starting animation: " + playingAnimation);
 			DrakonisModPlayerAnimationAPI.active_animations.put(player, animation);
+		} else {
+			DrakonisMod.LOGGER.info("[ANIM] Animation already active for player");
 		}
 		float animationProgress;
 		float lastAnimationProgress = data.getFloat("LastAnimationProgress");
@@ -117,11 +119,12 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 			data.putFloat("PlayerAnimationProgress", animationProgress);
 			data.putFloat("LastTickTime", ageInTicks);
 			data.putFloat("LastAnimationProgress", 0f);
-			DrakonisMod.LOGGER.info("[ANIM] Init progress for: " + playingAnimation + " length: " + animation.length);
+			DrakonisMod.LOGGER.info("[ANIM] Init progress for: " + playingAnimation + " length: " + animation.length + " ageInTicks=" + ageInTicks);
 		} else {
 			animationProgress = data.getFloat("PlayerAnimationProgress");
 			float lastTickTime = data.getFloat("LastTickTime");
 			float deltaTime = (ageInTicks - lastTickTime) / 20f;
+			DrakonisMod.LOGGER.info("[ANIM] Frame - ageInTicks=" + ageInTicks + " lastTickTime=" + lastTickTime + " deltaTime=" + deltaTime);
 			if (deltaTime > 0 && deltaTime < 0.5f) {
 				animationProgress += deltaTime;
 				data.putFloat("PlayerAnimationProgress", animationProgress);
