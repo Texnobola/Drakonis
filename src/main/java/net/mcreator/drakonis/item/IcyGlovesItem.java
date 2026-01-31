@@ -30,8 +30,8 @@ public class IcyGlovesItem extends Item implements ICurioItem {
 	public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltip, net.minecraft.world.item.TooltipFlag flag) {
 		super.appendHoverText(stack, context, tooltip, flag);
 		tooltip.add(Component.literal("§b§lICY GLOVES"));
-		tooltip.add(Component.literal("§7Equip in hands slot"));
-		tooltip.add(Component.literal("§8Blockbench item"));
+		tooltip.add(Component.literal("§7Blockbench 3D Model"));
+		tooltip.add(Component.literal("§9Equip in hands slot for ice magic"));
 	}
 
 	@Override

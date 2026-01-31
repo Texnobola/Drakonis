@@ -2,18 +2,9 @@ Picked up JAVA_TOOL_OPTIONS: -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
 Reusing configuration cache.
 > Task :jarJar NO-SOURCE
 > Task :processTestResources NO-SOURCE
+> Task :processResources UP-TO-DATE
 > Task :createMinecraftArtifacts UP-TO-DATE
-> Task :processResources
-
 > Task :compileJava
-C:\Users\dev\MCreatorWorkspaces\drakonis\src\main\java\net\mcreator\drakonis\init\DrakonisModCuriosCompat.java:15: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
-@EventBusSubscriber(modid = DrakonisMod.MODID, bus = EventBusSubscriber.Bus.MOD)
-                                               ^
-C:\Users\dev\MCreatorWorkspaces\drakonis\src\main\java\net\mcreator\drakonis\init\DrakonisModCuriosCompat.java:15: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
-@EventBusSubscriber(modid = DrakonisMod.MODID, bus = EventBusSubscriber.Bus.MOD)
-                                                                       ^
-2 warnings
-
 > Task :classes
 > Task :compileTestJava NO-SOURCE
 > Task :testClasses UP-TO-DATE
@@ -23,8 +14,6 @@ C:\Users\dev\MCreatorWorkspaces\drakonis\src\main\java\net\mcreator\drakonis\ini
 > Task :assemble
 > Task :build
 
-[Incubating] Problems report is available at: file:///C:/Users/dev/MCreatorWorkspaces/drakonis/build/reports/problems/problems-report.html
-
-BUILD SUCCESSFUL in 12s
-4 actionable tasks: 3 executed, 1 up-to-date
+BUILD SUCCESSFUL in 14s
+4 actionable tasks: 2 executed, 2 up-to-date
 Configuration cache entry reused.
