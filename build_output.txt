@@ -1,13 +1,2 @@
-Reusing configuration cache.
-> Task :check UP-TO-DATE
-> Task :jarJar NO-SOURCE
-> Task :processResources UP-TO-DATE
-> Task :createMinecraftArtifacts UP-TO-DATE
-
-> Task :compileJava
-
-> Task :compileJava FAILED
-
-[Incubating] Problems report is available at: file:///C:/Users/dev/MCreatorWorkspaces/drakonis/build/reports/problems/problems-report.html
-3 actionable tasks: 1 executed, 2 up-to-date
-Configuration cache entry reused.
+'.' is not recognized as an internal or external command,
+operable program or batch file.

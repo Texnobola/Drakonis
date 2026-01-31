@@ -85,7 +85,7 @@ public record EmberDominionToggleMessage(boolean isPressed) implements CustomPac
                         
                         // Send animation packet immediately
                         DrakonisMod.LOGGER.info("[EMBER DOM] Sending animation packet immediately");
-                        net.mcreator.drakonis.procedures.AnimationHelper.playAnimation(player, "drakonis:ember_dominion_activate", true, false);
+                        net.mcreator.drakonis.procedures.AnimationHelper.playAnimation(player, "drakonis:ember_dominium_fixed", true, false);
                         
                         if (level instanceof net.minecraft.server.level.ServerLevel serverLevel) {
                             for (int i = 0; i < 100; i++) {

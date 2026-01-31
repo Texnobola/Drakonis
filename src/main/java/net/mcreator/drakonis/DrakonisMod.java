@@ -28,6 +28,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.mcreator.drakonis.network.DrakonisModVariables;
 import net.mcreator.drakonis.init.DrakonisModTabs;
 import net.mcreator.drakonis.init.DrakonisModItems;
+import net.mcreator.drakonis.init.DrakonisModSounds;
 import net.mcreator.drakonis.init.DrakonisModCuriosCompat;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -72,7 +73,7 @@ public class DrakonisMod {
 		}
 
 		DrakonisModItems.REGISTRY.register(modEventBus);
-
+		DrakonisModSounds.REGISTRY.register(modEventBus);
 		DrakonisModTabs.REGISTRY.register(modEventBus);
 		DrakonisModVariables.ATTACHMENT_TYPES.register(modEventBus);
 

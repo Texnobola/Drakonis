@@ -13,8 +13,8 @@ repositories {
     }
 
     dependencies {
-        compileOnly ("curse.maven:ldlib-626676:7348462")
-        runtimeOnly ("curse.maven:ldlib-626676:7348462")
+        compileOnly ("curse.maven:ldlib-626676:7348463")
+        runtimeOnly ("curse.maven:ldlib-626676:7348463")
     }
 
 

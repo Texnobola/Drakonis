@@ -50,7 +50,7 @@ public class EmberDominionTickProcedure {
             
             if (holdTime == 1) {
                 // Send animation packet only once when ability first starts
-                AnimationHelper.playAnimation(player, "drakonis:ember_dominion_activate", true, false);
+                AnimationHelper.playAnimation(player, "drakonis:ember_dominium_fixed", true, false);
                 player.sendSystemMessage(net.minecraft.network.chat.Component.literal("§6§lEmber Dominion §eACTIVATING..."));
             }
             
@@ -63,8 +63,7 @@ public class EmberDominionTickProcedure {
                 // Play the epic dance music!
                 if (level instanceof ServerLevel serverLevel) {
                     serverLevel.playSound(null, player.blockPosition(), 
-                        net.minecraft.core.registries.BuiltInRegistries.SOUND_EVENT.get(
-                            ResourceLocation.fromNamespaceAndPath("drakonis", "hakari_dance")),
+                        net.mcreator.drakonis.init.DrakonisModSounds.HAKARI_DANCE.get(),
                         SoundSource.PLAYERS, 1.0F, 1.0F);
                 }
                 
