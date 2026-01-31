@@ -44,7 +44,7 @@ authors="MCreator"
     modId="curios_api"
     type="optional"
     versionRange="[0,)"
-    ordering="NONE"
+    ordering="AFTER"
     side="BOTH"
 [[dependencies.drakonis]]
     modId="jei"
