@@ -69,7 +69,7 @@ public class DrakonisMod {
 			net.mcreator.drakonis.network.PlayPlayerAnimationMessage.STREAM_CODEC,
 			net.mcreator.drakonis.network.PlayPlayerAnimationMessage::handleData);
 		if (ModList.get().isLoaded("curios")) {
-			modEventBus.addListener(DrakonisModCuriosCompat::registerCapabilities);
+			// Curios compatibility - items implement ICurioItem directly
 		}
 
 		DrakonisModItems.REGISTRY.register(modEventBus);
