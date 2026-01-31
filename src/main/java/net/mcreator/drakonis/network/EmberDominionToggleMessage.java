@@ -2,14 +2,18 @@ package net.mcreator.drakonis.network;
 
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.PacketFlow;
+import net.minecraft.network.protocol.game.ClientboundStopSoundPacket;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundSource;
 
 import net.mcreator.drakonis.init.DrakonisModItems;
 import net.mcreator.drakonis.DrakonisMod;
@@ -36,16 +40,37 @@ public record EmberDominionToggleMessage(boolean isPressed) implements CustomPac
                     
                     if (message.isPressed) {
                         // Check if already active - if so, deactivate instead
-                        if (data.isHoldingEmberDominion || data.emberDominionActive) {
-                            // Deactivate
-                            data.isHoldingEmberDominion = false;
+                        if (data.emberDominionActive) {
+                            // Only deactivate if FULLY active, not while animating
                             data.emberDominionActive = false;
+                            data.emberDominionTickCounter = 0; // Reset counter to clear music effects
                             data.syncPlayerVariables(player);
                             
                             DrakonisMod.LOGGER.info("[EMBER DOM] Deactivating ember dominion");
                             net.mcreator.drakonis.procedures.AnimationHelper.stopAnimation(player);
                             
+                            // Stop the music playing on deactivation
+                            if (level instanceof net.minecraft.server.level.ServerLevel serverLevel) {
+                                net.minecraft.network.protocol.game.ClientboundStopSoundPacket stopSoundPacket = 
+                                    new net.minecraft.network.protocol.game.ClientboundStopSoundPacket(
+                                        net.mcreator.drakonis.init.DrakonisModSounds.HAKARI_DANCE.get().getLocation(),
+                                        net.minecraft.sounds.SoundSource.PLAYERS
+                                    );
+                                if (player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+                                    serverPlayer.connection.send(stopSoundPacket);
+                                }
+                            }
+                            
                             player.sendSystemMessage(Component.literal("§cEmber Dominion DEACTIVATED"));
+                            return;
+                        }
+                        
+                        if (data.isHoldingEmberDominion) {
+                            // Cancel activation in progress
+                            DrakonisMod.LOGGER.info("[EMBER DOM] Cancelling activation");
+                            data.isHoldingEmberDominion = false;
+                            data.syncPlayerVariables(player);
+                            net.mcreator.drakonis.procedures.AnimationHelper.stopAnimation(player);
                             return;
                         }
                         
@@ -85,7 +110,7 @@ public record EmberDominionToggleMessage(boolean isPressed) implements CustomPac
                         
                         // Send animation packet immediately
                         DrakonisMod.LOGGER.info("[EMBER DOM] Sending animation packet immediately");
-                        net.mcreator.drakonis.procedures.AnimationHelper.playAnimation(player, "drakonis:ember_dominium_fixed", true, false);
+                        net.mcreator.drakonis.procedures.AnimationHelper.playAnimation(player, "drakonis:ember_dominion", true, false);
                         
                         if (level instanceof net.minecraft.server.level.ServerLevel serverLevel) {
                             for (int i = 0; i < 100; i++) {

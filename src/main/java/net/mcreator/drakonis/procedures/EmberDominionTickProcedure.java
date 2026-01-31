@@ -26,6 +26,7 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.drakonis.network.DrakonisModVariables;
 import net.mcreator.drakonis.init.DrakonisModItems;
+import net.mcreator.drakonis.DrakonisMod;
 
 import java.util.List;
 
@@ -49,13 +50,14 @@ public class EmberDominionTickProcedure {
             long holdTime = worldTime - data.emberDominionStartTime;
             
             if (holdTime == 1) {
-                // Send animation packet only once when ability first starts
-                AnimationHelper.playAnimation(player, "drakonis:ember_dominium_fixed", true, false);
+                // Animation already sent from toggle message - just show activation message
                 player.sendSystemMessage(net.minecraft.network.chat.Component.literal("§6§lEmber Dominion §eACTIVATING..."));
+                DrakonisMod.LOGGER.info("[EMBER DOM] Activation started, waiting 200 ticks");
             }
             
             if (holdTime >= 200) {
                 // Animation complete (10 seconds) - activate ability
+                DrakonisMod.LOGGER.info("[EMBER DOM] Activation complete! holdTime=" + holdTime + ", activating ability");
                 data.isHoldingEmberDominion = false;
                 data.emberDominionActive = true;
                 data.syncPlayerVariables(player);
@@ -107,6 +109,7 @@ public class EmberDominionTickProcedure {
         
         if (!hasFireStone && data.emberDominionActive) {
             data.emberDominionActive = false;
+            data.emberDominionTickCounter = 0; // Reset counter to stop music/effects
             removePlayerBuffs(player);
             data.syncPlayerVariables(player);
             return;
@@ -116,6 +119,8 @@ public class EmberDominionTickProcedure {
             removePlayerBuffs(player);
             return;
         }
+        
+        // Music is played once during activation, not looped
         
         applyPlayerBuffs(player);
         data.emberDominionTickCounter++;

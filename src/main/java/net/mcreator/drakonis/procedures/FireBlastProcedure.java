@@ -1,9 +1,12 @@
 package net.mcreator.drakonis.procedures;
 
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.server.level.ServerLevel;
@@ -40,7 +43,18 @@ public class FireBlastProcedure {
         double originalY = player.getY();
         double originalZ = player.getZ();
         
-        level.explode(null, blastPos.x, blastPos.y, blastPos.z, 5.0F, Level.ExplosionInteraction.NONE);
+        // Apply explosion effect and damage nearby entities except the caster player
+        if (level instanceof ServerLevel serverLevel) {
+            // Get entities in blast radius and damage them (except the caster)
+            for (Entity entity : serverLevel.getEntitiesOfClass(LivingEntity.class, 
+                new AABB(blastPos.x - 6, blastPos.y - 6, blastPos.z - 6, blastPos.x + 6, blastPos.y + 6, blastPos.z + 6))) {
+                if (entity != player) {
+                    entity.hurt(serverLevel.damageSources().magic(), 12.0F);
+                }
+            }
+            // Create visual explosion effect without damaging
+            serverLevel.explode(null, blastPos.x, blastPos.y, blastPos.z, 5.0F, net.minecraft.world.level.Level.ExplosionInteraction.NONE);
+        }
         
         player.setPos(originalX, originalY, originalZ);
         player.setDeltaMovement(player.getDeltaMovement().multiply(0.5, 0.5, 0.5));
