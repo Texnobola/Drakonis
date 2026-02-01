@@ -49,9 +49,4 @@ public class IcyGlovesItem extends Item implements ICurioItem {
 			player.displayClientMessage(Component.literal("§b✦ Icy Gloves removed"), true);
 		}
 	}
-
-	@Override
-	public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-		return slotContext.identifier().equals("hands");
-	}
 }
