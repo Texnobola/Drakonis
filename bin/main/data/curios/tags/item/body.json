@@ -2,6 +2,12 @@
   "replace": false,
   "values": [
     "drakonis:olovtoshi",
-    "drakonis:muztoshi"
+    "drakonis:muztoshi",
+    "drakonis:suvtoshi",
+    "drakonis:yertoshi",
+    "drakonis:vaqttoshi",
+    "drakonis:energiyatoshi",
+    "drakonis:darktoshi",
+    "drakonis:lighttoshi"
   ]
 }

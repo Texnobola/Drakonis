@@ -99,6 +99,9 @@ public class DrakonisModPlayerAnimationAPI {
 		public final List<Keyframe> rotations;
 		public final List<Keyframe> positions;
 		public final List<Keyframe> scales;
+		
+		// Cache for parsed Molang expressions
+		private static final Map<String, CompiledMolang> MOLANG_CACHE = new Object2ObjectOpenHashMap<>();
 
 		public PlayerBone(JsonObject bone) {
 			this.rotations = parseTransform(bone, "rotation");
@@ -260,19 +263,131 @@ public class DrakonisModPlayerAnimationAPI {
 		}
 
 		private static Vec3 evalMolang(String expr, float time, Player player) {
-			expr = preprocessMolangQueries(expr, time, player);
-			try {
-				if (expr.trim().startsWith("[") && expr.trim().endsWith("]")) {
-					String inner = expr.trim().substring(1, expr.trim().length() - 1);
-					String[] parts = inner.split(",");
-					return new Vec3(parts.length > 0 ? evalFloat(parts[0].trim(), time, player) : 0, parts.length > 1 ? evalFloat(parts[1].trim(), time, player) : 0, parts.length > 2 ? evalFloat(parts[2].trim(), time, player) : 0);
+			CompiledMolang compiled = MOLANG_CACHE.computeIfAbsent(expr, k -> compileMolang(k));
+			return compiled.evaluate(time, player);
+		}
+		
+		private static class CompiledMolang {
+			private final boolean isVector;
+			private final CompiledExpression[] expressions;
+			
+			CompiledMolang(boolean isVector, CompiledExpression[] expressions) {
+				this.isVector = isVector;
+				this.expressions = expressions;
+			}
+			
+			Vec3 evaluate(float time, Player player) {
+				if (isVector) {
+					return new Vec3(
+						expressions[0].evaluate(time, player),
+						expressions[1].evaluate(time, player),
+						expressions[2].evaluate(time, player)
+					);
 				}
-				float val = evalFloat(expr, time, player);
+				float val = expressions[0].evaluate(time, player);
 				return new Vec3(val, val, val);
+			}
+		}
+		
+		private static CompiledMolang compileMolang(String expr) {
+			try {
+				expr = expr.trim();
+				if (expr.startsWith("[") && expr.endsWith("]")) {
+					String inner = expr.substring(1, expr.length() - 1);
+					String[] parts = inner.split(",");
+					return new CompiledMolang(true, new CompiledExpression[] {
+						compileExpression(parts.length > 0 ? parts[0].trim() : "0"),
+						compileExpression(parts.length > 1 ? parts[1].trim() : "0"),
+						compileExpression(parts.length > 2 ? parts[2].trim() : "0")
+					});
+				}
+				return new CompiledMolang(false, new CompiledExpression[] { compileExpression(expr) });
 			} catch (Exception e) {
 				e.printStackTrace();
-				return Vec3.ZERO;
+				return new CompiledMolang(false, new CompiledExpression[] { (t, p) -> 0.0f });
 			}
+		}
+		
+		private interface CompiledExpression {
+			float evaluate(float time, Player player);
+		}
+		
+		private static CompiledExpression compileExpression(String expr) {
+			if (expr == null || expr.isEmpty())
+				return (t, p) -> 0.0f;
+			expr = expr.trim().replace(" ", "");
+			String lower = expr.toLowerCase();
+			
+			// Try to parse as constant
+			try {
+				float constant = Float.parseFloat(expr);
+				return (t, p) -> constant;
+			} catch (NumberFormatException ignored) {}
+			
+			// Compile math functions
+			if (lower.startsWith("math.sin(") && lower.endsWith(")")) {
+				CompiledExpression inner = compileExpression(expr.substring(9, expr.length() - 1));
+				return (t, p) -> (float) Math.sin(Math.toRadians(inner.evaluate(t, p)));
+			}
+			if (lower.startsWith("math.cos(") && lower.endsWith(")")) {
+				CompiledExpression inner = compileExpression(expr.substring(9, expr.length() - 1));
+				return (t, p) -> (float) Math.cos(Math.toRadians(inner.evaluate(t, p)));
+			}
+			if (lower.startsWith("math.abs(") && lower.endsWith(")")) {
+				CompiledExpression inner = compileExpression(expr.substring(9, expr.length() - 1));
+				return (t, p) -> Math.abs(inner.evaluate(t, p));
+			}
+			if (lower.startsWith("math.sqrt(") && lower.endsWith(")")) {
+				CompiledExpression inner = compileExpression(expr.substring(10, expr.length() - 1));
+				return (t, p) -> (float) Math.sqrt(inner.evaluate(t, p));
+			}
+			
+			// Compile operators
+			int depth = 0;
+			for (int i = expr.length() - 1; i >= 0; i--) {
+				char c = expr.charAt(i);
+				if (c == ')') depth++;
+				else if (c == '(') depth--;
+				else if (depth == 0) {
+					if (c == '+') {
+						CompiledExpression left = compileExpression(expr.substring(0, i));
+						CompiledExpression right = compileExpression(expr.substring(i + 1));
+						return (t, p) -> left.evaluate(t, p) + right.evaluate(t, p);
+					} else if (c == '-' && i > 0) {
+						char prev = expr.charAt(i - 1);
+						if (prev != '+' && prev != '-' && prev != '*' && prev != '/' && prev != '(') {
+							CompiledExpression left = compileExpression(expr.substring(0, i));
+							CompiledExpression right = compileExpression(expr.substring(i + 1));
+							return (t, p) -> left.evaluate(t, p) - right.evaluate(t, p);
+						}
+					}
+				}
+			}
+			depth = 0;
+			for (int i = expr.length() - 1; i >= 0; i--) {
+				char c = expr.charAt(i);
+				if (c == ')') depth++;
+				else if (c == '(') depth--;
+				else if (depth == 0) {
+					if (c == '*') {
+						CompiledExpression left = compileExpression(expr.substring(0, i));
+						CompiledExpression right = compileExpression(expr.substring(i + 1));
+						return (t, p) -> left.evaluate(t, p) * right.evaluate(t, p);
+					}
+					if (c == '/') {
+						CompiledExpression left = compileExpression(expr.substring(0, i));
+						CompiledExpression right = compileExpression(expr.substring(i + 1));
+						return (t, p) -> {
+							float denom = right.evaluate(t, p);
+							return denom == 0 ? 0 : left.evaluate(t, p) / denom;
+						};
+					}
+				}
+			}
+			
+			// Handle queries - these need runtime evaluation
+			String finalExpr = expr;
+			return (t, p) -> evalFloat(preprocessMolangQueries(finalExpr, t, p), t, p);
 		}
 
 		private static float evalFloat(String expr, float time, Player player) {

@@ -68,6 +68,9 @@ public class DrakonisMod {
 		addNetworkMessage(net.mcreator.drakonis.network.PlayPlayerAnimationMessage.TYPE,
 			net.mcreator.drakonis.network.PlayPlayerAnimationMessage.STREAM_CODEC,
 			net.mcreator.drakonis.network.PlayPlayerAnimationMessage::handleData);
+		addNetworkMessage(net.mcreator.drakonis.network.IceGloveTransformMessage.TYPE,
+			net.mcreator.drakonis.network.IceGloveTransformMessage.STREAM_CODEC,
+			net.mcreator.drakonis.network.IceGloveTransformMessage::handleData);
 		if (ModList.get().isLoaded("curios")) {
 			// Curios compatibility - items implement ICurioItem directly
 		}

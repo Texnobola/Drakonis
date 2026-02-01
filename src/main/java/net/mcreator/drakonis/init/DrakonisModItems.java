@@ -21,8 +21,8 @@ public class DrakonisModItems {
 	public static final DeferredItem<Item> ENERGIYATOSHI;
 	public static final DeferredItem<Item> DARKTOSHI;
 	public static final DeferredItem<Item> LIGHTTOSHI;
-	public static final DeferredItem<Item> INSTRUCTION_BOOK;
-	public static final DeferredItem<Item> ICY_GLOVES;
+	public static final DeferredItem<Item> ICY_GLOVE_RIGHT;
+	public static final DeferredItem<Item> ICY_GLOVE_LEFT;
 	static {
 		OLOVTOSHI = REGISTRY.register("olovtoshi", OlovtoshiItem::new);
 		MUZTOSHI = REGISTRY.register("muztoshi", MuztoshiItem::new);
@@ -32,8 +32,8 @@ public class DrakonisModItems {
 		ENERGIYATOSHI = REGISTRY.register("energiyatoshi", EnergiyatoshiItem::new);
 		DARKTOSHI = REGISTRY.register("darktoshi", DarktoshiItem::new);
 		LIGHTTOSHI = REGISTRY.register("lighttoshi", LighttoshiItem::new);
-		INSTRUCTION_BOOK = REGISTRY.register("instruction_book", () -> new InstructionBookItem(new Item.Properties()));
-		ICY_GLOVES = REGISTRY.register("icy_gloves", IcyGlovesItem::new);
+		ICY_GLOVE_RIGHT = REGISTRY.register("icy_glove_right", IcyGloveRightItem::new);
+		ICY_GLOVE_LEFT = REGISTRY.register("icy_glove_left", IcyGloveLeftItem::new);
 	}
 	// Start of user code block custom items
 	// End of user code block custom items

@@ -19,6 +19,7 @@ import net.mcreator.drakonis.network.FirstpassiveMessage;
 import net.mcreator.drakonis.network.EmberDominionToggleMessage;
 import net.mcreator.drakonis.network.FireBlastChargeMessage;
 import net.mcreator.drakonis.network.DragonConcentrationToggleMessage;
+import net.mcreator.drakonis.network.IceGloveTransformMessage;
 
 @EventBusSubscriber(Dist.CLIENT)
 public class DrakonisModKeyMappings {
@@ -47,7 +48,13 @@ public class DrakonisModKeyMappings {
 			boolean shiftHeld = mc.player != null && mc.player.isShiftKeyDown();
 			
 			if (isDownOld != isDown) {
-				if (shiftHeld) {
+				// Check if player has ice stone in curios
+				boolean hasIceStone = mc.player != null && hasItemInCurios(mc.player, net.mcreator.drakonis.init.DrakonisModItems.MUZTOSHI.get().getDefaultInstance());
+				
+				if (hasIceStone && !shiftHeld && isDown) {
+					// Ice glove transformation
+					PacketDistributor.sendToServer(new IceGloveTransformMessage(true));
+				} else if (shiftHeld) {
 					// Fire Blast charging (hold-based)
 					PacketDistributor.sendToServer(new FireBlastChargeMessage(isDown));
 				} else {
@@ -56,6 +63,19 @@ public class DrakonisModKeyMappings {
 				}
 			}
 			isDownOld = isDown;
+		}
+		
+		private boolean hasItemInCurios(net.minecraft.world.entity.player.Player player, net.minecraft.world.item.ItemStack item) {
+			var curiosInventory = net.mcreator.drakonis.DrakonisMod.CuriosApiHelper.getCuriosInventory(player);
+			if (curiosInventory == null)
+				return false;
+			
+			for (int i = 0; i < curiosInventory.getSlots(); i++) {
+				net.minecraft.world.item.ItemStack stack = curiosInventory.getStackInSlot(i);
+				if (net.minecraft.world.item.ItemStack.isSameItem(stack, item))
+					return true;
+			}
+			return false;
 		}
 	};
 
