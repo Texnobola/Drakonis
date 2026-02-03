@@ -88,6 +88,7 @@ public class DrakonisModVariables {
 		public boolean fireBlastCharging = false;
 		public long fireBlastChargeTime = 0;
 		public long dragonStrikeICDUntil = 0;
+		public long iceGlovesICDUntil = 0;
 		public boolean isHoldingConcentration = false;
 		public boolean concentrationAnimationPlayed = false;
 		public boolean dragonConcentrationActivated = false;
@@ -121,6 +122,7 @@ public class DrakonisModVariables {
 			nbt.putBoolean("fireBlastCharging", fireBlastCharging);
 			nbt.putLong("fireBlastChargeTime", fireBlastChargeTime);
 			nbt.putLong("dragonStrikeICDUntil", dragonStrikeICDUntil);
+			nbt.putLong("iceGlovesICDUntil", iceGlovesICDUntil);
 			nbt.putBoolean("isHoldingConcentration", isHoldingConcentration);
 			nbt.putBoolean("concentrationAnimationPlayed", concentrationAnimationPlayed);
 			nbt.putBoolean("dragonConcentrationActivated", dragonConcentrationActivated);
@@ -155,6 +157,7 @@ public class DrakonisModVariables {
 			fireBlastCharging = nbt.getBoolean("fireBlastCharging");
 			fireBlastChargeTime = nbt.getLong("fireBlastChargeTime");
 			dragonStrikeICDUntil = nbt.getLong("dragonStrikeICDUntil");
+			iceGlovesICDUntil = nbt.getLong("iceGlovesICDUntil");
 			isHoldingConcentration = nbt.getBoolean("isHoldingConcentration");
 			concentrationAnimationPlayed = nbt.getBoolean("concentrationAnimationPlayed");
 			dragonConcentrationActivated = nbt.getBoolean("dragonConcentrationActivated");

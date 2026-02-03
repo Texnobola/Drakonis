@@ -23,6 +23,7 @@ public class DrakonisModItems {
 	public static final DeferredItem<Item> LIGHTTOSHI;
 	public static final DeferredItem<Item> ICY_GLOVE_RIGHT;
 	public static final DeferredItem<Item> ICY_GLOVE_LEFT;
+	public static final DeferredItem<Item> ICY_HELMET_HELMET;
 	static {
 		OLOVTOSHI = REGISTRY.register("olovtoshi", OlovtoshiItem::new);
 		MUZTOSHI = REGISTRY.register("muztoshi", MuztoshiItem::new);
@@ -34,6 +35,7 @@ public class DrakonisModItems {
 		LIGHTTOSHI = REGISTRY.register("lighttoshi", LighttoshiItem::new);
 		ICY_GLOVE_RIGHT = REGISTRY.register("icy_glove_right", IcyGloveRightItem::new);
 		ICY_GLOVE_LEFT = REGISTRY.register("icy_glove_left", IcyGloveLeftItem::new);
+		ICY_HELMET_HELMET = REGISTRY.register("icy_helmet_helmet", IcyHelmetItem.Helmet::new);
 	}
 	// Start of user code block custom items
 	// End of user code block custom items

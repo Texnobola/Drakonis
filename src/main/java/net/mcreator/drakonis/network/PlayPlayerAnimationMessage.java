@@ -58,6 +58,8 @@ public record PlayPlayerAnimationMessage(int player, String animation, boolean o
 							boolean isOneShotAnimation = currentAnim.contains("dragon_concentration") || 
 														currentAnim.contains("ember_dominion") ||
 														currentAnim.contains("dragon_strike") ||
+														currentAnim.contains("glacier_shatter_complete_physics") ||
+														currentAnim.contains("animation.drakonis.street_fighter") ||
 														currentAnim.contains("snow_summon_caster");
 							
 							if (!isOneShotAnimation) {
