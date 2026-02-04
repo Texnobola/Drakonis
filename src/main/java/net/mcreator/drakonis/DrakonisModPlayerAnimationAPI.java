@@ -174,6 +174,8 @@ public class DrakonisModPlayerAnimationAPI {
 					}
 				}
 			}
+			// FIX: Sort keyframes by time to ensure interpolation works correctly
+			result.sort((k1, k2) -> Float.compare(k1.time, k2.time));
 			return result;
 		}
 
