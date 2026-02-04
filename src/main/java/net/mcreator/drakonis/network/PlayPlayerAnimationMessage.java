@@ -76,6 +76,7 @@ public record PlayPlayerAnimationMessage(int player, String animation, boolean o
 						data.putBoolean("OverrideCurrentAnimation", message.override);
 						data.putBoolean("FirstPersonAnimation", message.firstPerson);
 						DrakonisMod.LOGGER.info("[ANIM] Set animation NBT: " + message.animation + " override=" + message.override);
+						DrakonisMod.LOGGER.info("[ANIM] Verifying NBT: " + data.getString("PlayerCurrentAnimation"));
 					}
 				} catch (Exception e) {
 					DrakonisMod.LOGGER.error("Error handling animation packet: ", e);

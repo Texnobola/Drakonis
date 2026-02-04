@@ -45,10 +45,10 @@ public abstract class IcyHelmetItem extends ArmorItem {
 	public static void registerArmorMaterial(RegisterEvent event) {
 		event.register(Registries.ARMOR_MATERIAL, registerHelper -> {
 			ArmorMaterial armorMaterial = new ArmorMaterial(Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
-				map.put(ArmorItem.Type.BOOTS, 2);
-				map.put(ArmorItem.Type.LEGGINGS, 5);
-				map.put(ArmorItem.Type.CHESTPLATE, 6);
-				map.put(ArmorItem.Type.HELMET, 2);
+			map.put(ArmorItem.Type.BOOTS, 10);
+			map.put(ArmorItem.Type.LEGGINGS, 10);
+			map.put(ArmorItem.Type.CHESTPLATE, 10);
+			map.put(ArmorItem.Type.HELMET, 10);
 				map.put(ArmorItem.Type.BODY, 6);
 			}), 100, BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.EMPTY), 
 			() -> Ingredient.of(new ItemStack(Blocks.BLUE_ICE)), 
@@ -103,7 +103,7 @@ public abstract class IcyHelmetItem extends ArmorItem {
 
 		@Override
 		public ResourceLocation getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, ArmorMaterial.Layer layer, boolean innerModel) {
-			return ResourceLocation.fromNamespaceAndPath("drakonis", "textures/models/armor/icy_helmet.png");
+			return ResourceLocation.fromNamespaceAndPath("drakonis", "textures/models/armor/icy_armors_texture.png");
 		}
 	}
 }

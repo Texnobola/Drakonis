@@ -46,6 +46,9 @@ public class DrakonisModPlayerAnimationAPI {
 			JsonObject animationObject = animationsObject.get(animationName).getAsJsonObject();
 			PlayerAnimation animation = new PlayerAnimation(animationObject);
 			animations.put(animationName, animation);
+			if (animationName.contains("evolution")) {
+				System.out.println("[Drakonis] Loaded evolution animation: " + animationName + " with length: " + animation.length);
+			}
 		}
 	}
 

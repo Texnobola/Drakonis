@@ -108,6 +108,9 @@ public class DrakonisModVariables {
 		public boolean isSnowGolemSummoning = false;
 		public long snowGolemSummonStartTime = 0;
 		public long snowGolemSummonCooldown = 0;
+		public boolean isEvolvingToArmor = false;
+		public long evolutionStartTime = 0;
+		public long evolutionCooldown = 0;
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
@@ -142,6 +145,9 @@ public class DrakonisModVariables {
 			nbt.putBoolean("isSnowGolemSummoning", isSnowGolemSummoning);
 			nbt.putLong("snowGolemSummonStartTime", snowGolemSummonStartTime);
 			nbt.putLong("snowGolemSummonCooldown", snowGolemSummonCooldown);
+			nbt.putBoolean("isEvolvingToArmor", isEvolvingToArmor);
+			nbt.putLong("evolutionStartTime", evolutionStartTime);
+			nbt.putLong("evolutionCooldown", evolutionCooldown);
 			return nbt;
 		}
 
@@ -178,6 +184,9 @@ public class DrakonisModVariables {
 			isSnowGolemSummoning = nbt.getBoolean("isSnowGolemSummoning");
 			snowGolemSummonStartTime = nbt.getLong("snowGolemSummonStartTime");
 			snowGolemSummonCooldown = nbt.getLong("snowGolemSummonCooldown");
+			isEvolvingToArmor = nbt.getBoolean("isEvolvingToArmor");
+			evolutionStartTime = nbt.getLong("evolutionStartTime");
+			evolutionCooldown = nbt.getLong("evolutionCooldown");
 		}
 
 		public void syncPlayerVariables(net.minecraft.world.entity.player.Player player) {

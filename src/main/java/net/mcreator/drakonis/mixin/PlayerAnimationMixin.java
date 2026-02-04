@@ -45,8 +45,14 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 		else
 			return;
 		
+		// DEBUG: Log every setupAnim HEAD for player
+		CompoundTag data = player.getPersistentData();
+		String playingAnimation = data.getString("PlayerCurrentAnimation");
+		if (playingAnimation.contains("evolution")) {
+			DrakonisMod.LOGGER.info("[ANIM] setupAnim HEAD - playingAnimation='" + playingAnimation + "' ageInTicks=" + ageInTicks);
+		}
+		
 		// Check if player has an active animation
-		String playingAnimation = player.getPersistentData().getString("PlayerCurrentAnimation");
 		if (!playingAnimation.isEmpty()) {
 			// Reset model to default pose before applying animation
 			resetModelPose(model);
@@ -72,6 +78,12 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 			return;
 		CompoundTag data = player.getPersistentData();
 		String playingAnimation = data.getString("PlayerCurrentAnimation");
+		
+		// DEBUG: Log every frame for evolution
+		if (playingAnimation.contains("evolution")) {
+			DrakonisMod.LOGGER.info("[ANIM] setupAnim TAIL - playingAnimation='" + playingAnimation + "' overrideFlag=" + data.getBoolean("OverrideCurrentAnimation"));
+		}
+		
 		boolean overrideAnimation = data.getBoolean("OverrideCurrentAnimation");
 		boolean firstPerson = data.getBoolean("FirstPersonAnimation") && mc.options.getCameraType().isFirstPerson() && player == mc.player && mc.screen == null;
 		if (data.getBoolean("ResetPlayerAnimation")) {
@@ -106,10 +118,12 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 				DrakonisMod.LOGGER.error("[ANIM] Available: " + DrakonisModPlayerAnimationAPI.animations.keySet());
 				return;
 			}
-			DrakonisMod.LOGGER.info("[ANIM] Starting animation: " + playingAnimation);
+			DrakonisMod.LOGGER.info("[ANIM] Starting animation: " + playingAnimation + " with length: " + animation.length);
 			DrakonisModPlayerAnimationAPI.active_animations.put(player, animation);
 		} else {
-			DrakonisMod.LOGGER.info("[ANIM] Animation already active for player");
+			if (playingAnimation.contains("evolution")) {
+				DrakonisMod.LOGGER.info("[ANIM] Animation already active - should be rendering bones now");
+			}
 		}
 		float animationProgress;
 		float lastAnimationProgress = data.getFloat("LastAnimationProgress");
@@ -124,12 +138,24 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 			animationProgress = data.getFloat("PlayerAnimationProgress");
 			float lastTickTime = data.getFloat("LastTickTime");
 			float deltaTime = (ageInTicks - lastTickTime) / 20f;
-			DrakonisMod.LOGGER.info("[ANIM] Frame - ageInTicks=" + ageInTicks + " lastTickTime=" + lastTickTime + " deltaTime=" + deltaTime);
+			if (playingAnimation.contains("evolution")) {
+				DrakonisMod.LOGGER.info("[ANIM] Frame - ageInTicks=" + ageInTicks + " lastTickTime=" + lastTickTime + " deltaTime=" + deltaTime + " progress=" + animationProgress + "/" + animation.length);
+			}
 			if (deltaTime > 0 && deltaTime < 0.5f) {
 				animationProgress += deltaTime;
 				data.putFloat("PlayerAnimationProgress", animationProgress);
 				if (animationProgress % 1.0f < 0.1f) {
-					DrakonisMod.LOGGER.info("[ANIM] Progress: " + animationProgress + "/" + animation.length);
+					if (playingAnimation.contains("evolution")) {
+						DrakonisMod.LOGGER.info("[ANIM] Progress: " + animationProgress + "/" + animation.length);
+					}
+				}
+			} else if (deltaTime >= 0.5f) {
+				// Large frame skip - clamp to reasonable update
+				float clampedDelta = Math.min(deltaTime, 0.05f);
+				animationProgress += clampedDelta;
+				data.putFloat("PlayerAnimationProgress", animationProgress);
+				if (playingAnimation.contains("evolution")) {
+					DrakonisMod.LOGGER.info("[ANIM] Large deltaTime clamped: " + deltaTime + " -> " + clampedDelta);
 				}
 			}
 			data.putFloat("LastTickTime", ageInTicks);

@@ -71,6 +71,9 @@ public class DrakonisMod {
 		addNetworkMessage(net.mcreator.drakonis.network.IceGloveTransformMessage.TYPE,
 			net.mcreator.drakonis.network.IceGloveTransformMessage.STREAM_CODEC,
 			net.mcreator.drakonis.network.IceGloveTransformMessage::handleData);
+		addNetworkMessage(net.mcreator.drakonis.network.EvolutionMessage.TYPE,
+			net.mcreator.drakonis.network.EvolutionMessage.STREAM_CODEC,
+			net.mcreator.drakonis.network.EvolutionMessage::handleData);
 		if (ModList.get().isLoaded("curios")) {
 			// Curios compatibility - items implement ICurioItem directly
 		}
@@ -131,6 +134,7 @@ public class DrakonisMod {
 			net.mcreator.drakonis.procedures.DragonConcentrationTickProcedure.execute(player);
 			net.mcreator.drakonis.procedures.FireBlastChargingTickProcedure.execute(player);
 			net.mcreator.drakonis.procedures.MuztoshiPassiveTickProcedure.execute(player);
+			net.mcreator.drakonis.procedures.EvolutionTickProcedure.execute(player);
 		}
 		net.mcreator.drakonis.procedures.FireStoneCookingProcedure.onPlayerTick(event);
 	}

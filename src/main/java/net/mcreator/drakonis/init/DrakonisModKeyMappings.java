@@ -20,6 +20,7 @@ import net.mcreator.drakonis.network.EmberDominionToggleMessage;
 import net.mcreator.drakonis.network.FireBlastChargeMessage;
 import net.mcreator.drakonis.network.DragonConcentrationToggleMessage;
 import net.mcreator.drakonis.network.IceGloveTransformMessage;
+import net.mcreator.drakonis.network.EvolutionMessage;
 
 @EventBusSubscriber(Dist.CLIENT)
 public class DrakonisModKeyMappings {
@@ -92,11 +93,26 @@ public class DrakonisModKeyMappings {
 		}
 	};
 
+	public static final KeyMapping EVOLUTION = new KeyMapping("key.drakonis.evolution", GLFW.GLFW_KEY_V, "key.categories.gameplay") {
+		private boolean isDownOld = false;
+
+		@Override
+		public void setDown(boolean isDown) {
+			super.setDown(isDown);
+			if (isDownOld != isDown && isDown) {
+				// Evolution trigger - V key
+				PacketDistributor.sendToServer(new EvolutionMessage(true));
+			}
+			isDownOld = isDown;
+		}
+	};
+
 	@SubscribeEvent
 	public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
 		event.register(FIRSTPASSIVE);
 		event.register(EMBER_DOMINION);
 		event.register(DRAGON_CONCENTRATION);
+		event.register(EVOLUTION);
 	}
 
 	@EventBusSubscriber(Dist.CLIENT)
@@ -107,6 +123,7 @@ public class DrakonisModKeyMappings {
 				FIRSTPASSIVE.consumeClick();
 				EMBER_DOMINION.consumeClick();
 				DRAGON_CONCENTRATION.consumeClick();
+				EVOLUTION.consumeClick();
 			}
 		}
 	}
